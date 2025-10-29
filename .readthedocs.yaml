@@ -7,7 +7,7 @@ build:
   jobs:
     pre_install:
       - pip install -U pip
-      - pip install sphinx furo myst-parser sphinx-copybutton sphinx-design sphinxcontrib-video sphinxext-opengraph
+      - pip install sphinx furo myst-parser sphinx-copybutton sphinx-design sphinxcontrib-video sphinxext-opengraph linkify-it-py
 
 sphinx:
   configuration: docs/conf.py
