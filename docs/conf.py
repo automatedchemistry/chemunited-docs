@@ -1,8 +1,14 @@
+# Build html
+# sphinx-build -b html -v docs docs/_build/html
+# start docs/_build/html/index.html
+
 # Configuration file for the Sphinx documentation builder.
+import datetime
 
 project = 'Chemunited'
-copyright = '2025, X'
-author = 'X'
+YEAR = datetime.date.today().strftime("%Y")
+author = "Samuel Saraiva"
+copyright = f"{YEAR}, {author}"
 release = '0.1.0'
 
 # Add extensions
@@ -19,15 +25,16 @@ source_suffix = {
     '.rst': 'restructuredtext',
     '.md': 'markdown',
 }
+autodoc_member_order = "bysource"
 
 # Theme
-html_theme = 'furo'
+html_theme = 'sphinx_rtd_theme'
 
 # Add custom static files (for custom CSS, logos, etc.)
 html_static_path = ['_static']
 
 # Optional: add your logo and favicon
-html_logo = "_static/chemunited.svg"
+html_logo = "_static/logo.png"
 html_favicon = "_static/favicon.ico"
 
 # MyST markdown settings (for more flexible formatting)
