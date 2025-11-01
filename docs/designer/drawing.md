@@ -36,10 +36,9 @@ This mode helps you inspect the properties of components.
 While you can double-click any component to open its properties, this mode also brings all components to the front of the drawing to make inspection easier.
 
 <div class="info-block">
-  <strong>💡 Information Block</strong><br>
+  <strong>💡 Information</strong><br>
   To <b>view or edit the properties of a connection</b>, activate <b>Inspect Draw</b> mode  
   and click on the <b>inflexion points</b> of the connection to display its parameters.
-
 </div>
 
 
@@ -58,6 +57,26 @@ To add a component to the drawing:
   <img src="../_static/drawing_components_group.png" alt="Image 1" width="45%">
   <img src="../_static/drawing_components.png" alt="Image 2" width="44.27%">
 </p>
+
+## Components & connections properties
+
+After adding a component, a window will appear where the user can provide the component’s details.
+The most important field is the name, which serves as the unique identifier for accessing the component throughout the entire project.
+
+<div class="warning-block">
+<strong>⚠️ Warning</strong><br>
+Choose the component name carefully. All properties, protocols, and orchestration features are linked to this name. 
+If you need to rename a component later, the recommended approach is to <b>remove it and recreate it</b> 
+using the new name. 
+</div>
+
+Unlike components, connection properties do not open automatically.
+
+<div class="info-block"> 
+<strong>💡 Information</strong><br> 
+While all components share some common parameters, each one also includes
+<b>specific adjustable settings</b> depending on its type.
+</div>
 
 More details about each component can be found in the reference section: [Components Available](../reference/components.md).
 
