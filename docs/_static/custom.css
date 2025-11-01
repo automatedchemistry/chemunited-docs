@@ -70,3 +70,48 @@
 .logo-btn:nth-child(4) { background: #ff9900 !important; } /* Advanced Designer */
 .logo-btn:nth-child(5) { background: #666666 !important; } /* Developer */
 .logo-btn:nth-child(6) { background: #3366cc !important; } /* Reference */
+
+/* ---------- INFO BLOCK ---------- */
+.info-block {
+  background-color: #eef6ff;
+  border-left: 4px solid #0078d7;
+  padding: 1em 1.2em;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5em;  /* Adds space below the block */
+}
+.info-block strong {
+  color: #005a9e;
+}
+
+/* ---------- WARNING BLOCK ---------- */
+.warning-block {
+  background-color: #fff8e5;
+  border-left: 4px solid #f1c40f;
+  padding: 1em 1.2em;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5em;  /* Adds space below the block */
+}
+.warning-block strong {
+  color: #a67c00;
+}
+
+/* ---------- ERROR BLOCK ---------- */
+.error-block {
+  background-color: #fdecea;
+  border-left: 4px solid #e74c3c;
+  padding: 1em 1.2em;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5em;  /* Adds space below the block */
+}
+.error-block strong {
+  color: #a93226;
+}

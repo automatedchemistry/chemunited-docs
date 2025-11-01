@@ -43,7 +43,7 @@ install.md
 ```
 
 ```{toctree}
-:maxdepth: 2
+:maxdepth: 1
 :caption: Experimenter
 
 experimenter/welcome.md
@@ -53,7 +53,7 @@ experimenter/simulation.md
 ```
 
 ```{toctree}
-:maxdepth: 2
+:maxdepth: 1
 :caption: Designer
 
 designer/welcome.md
@@ -65,7 +65,7 @@ designer/run_monitoring.md
 ```
 
 ```{toctree}
-:maxdepth: 2
+:maxdepth: 1
 :caption: Advanced Designer
 
 advanced_designer/welcome.md
@@ -77,7 +77,7 @@ advanced_designer/project_files.md
 ```
 
 ```{toctree}
-:maxdepth: 2
+:maxdepth: 1
 :caption: Developer
 
 developer/welcome.md
