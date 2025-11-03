@@ -84,7 +84,7 @@ More details about each component can be found in the reference section: [Compon
 
 Back to our learning example, you can follow the step-by-step demonstration shown in the video below.
 
-```{video} ../_static/demo.mp4
+```{video} ../_static/drawing_tutorial.mp4
 :autoplay:
 :loop:
 :width: 700
