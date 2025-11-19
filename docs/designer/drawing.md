@@ -58,6 +58,55 @@ To add a component to the drawing:
   <img src="../_static/drawing_components.png" alt="Image 2" width="44.27%">
 </p>
 
+## Building Connections
+
+Connections define how components interact within the setup. Each connection begins and ends at a connection point, 
+and each point belongs to a specific category. Only connection points of the same category can be linked.
+
+### Types of Connections Points
+
+There are four standardized connection point types:
+
+* <img src="../_static/icons/flow_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Flow Connection Point*
+
+Represents standard connections used for tubing that transports fluids through the system.
+
+* <img src="../_static/icons/heat_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Heat Connection Point*
+
+Used for defining heat-transfer relationships between components during simulation.
+These connections affect simulated thermal behavior, but they do not influence the execution of the real protocol.
+
+* <img src="../_static/icons/electronic_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Electronic Connection Point*
+
+Used for connections that transmit electronic control signals.
+While devices in ChemUnited can be accessed directly, in certain cases, it is more 
+efficient to trigger device actions through the microcontroller connected to it. This is especially useful when 
+several devices must be activated simultaneously.
+For more details on the microcontroller implementation, see the referenced documentation.
+
+* <img src="../_static/icons/movement_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Flow Connection Point*
+
+An extension of the flow connection, used to represent the movement of samples—typically handled by mechanical 
+arms, gantries, or other robotic modules.
+
+### Build examples
+
+A connection is created by linking two compatible connection points.
+When building a connection, the user may add several inflection points to better route the connection through the setup layout.
+Connections can also be reshaped—made more curved or more linear—to improve the clarity and aesthetics of the design.
+
+```{video} ../_static/build_connection.mp4
+:autoplay:
+:loop:
+:width: 700
+```
+
+<div class="warning-block">
+<strong>⚠️ Warning</strong><br>
+A connection can only be established between points of the same type (Flow–Flow, Heat–Heat, Electronic–Electronic, or Movement–Movement).
+</div>
+
+
 ## Components & connections properties
 
 After adding a component, a window will appear where the user can provide the component’s details.
@@ -89,3 +138,4 @@ Back to our learning example, you can follow the step-by-step demonstration show
 :loop:
 :width: 700
 ```
+
