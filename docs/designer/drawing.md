@@ -100,12 +100,7 @@ Connections can also be reshaped—made more curved or more linear—to improve 
 A connection can only be established between points of the same type (Flow–Flow, Heat–Heat, Electronic–Electronic, or Movement–Movement).
 </div>
 
-<video width="640" controls>
-    <source src="https://github.com/automatedchemistry/chemunited-docs/tree/main/docs/_static/build_connection.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-</video>
-
-![Alt text](../_static/build_connection.gif)
+<img src="../_static/build_connection.gif" width="500px">
 
 ## Components & connections properties
 
