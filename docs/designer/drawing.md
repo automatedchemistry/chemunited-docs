@@ -10,7 +10,7 @@ Below is a description of the main tools available in this window:
 
 Centers the drawing on the canvas. This is useful for reorienting the view and exploring your setup more easily.
 
-* <img src="../_static/icons/move_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Move Object**
+* <img src="../_static/icons/Move_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Move Object**
 
 Activates the mode to move components or connections within the drawing area.
 
@@ -67,16 +67,16 @@ and each point belongs to a specific category. Only connection points of the sam
 
 There are four standardized connection point types:
 
-* <img src="../_static/icons/flow_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Flow Connection Point*
+* <img src="../_static/icons/flow_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Flow Connection Point**
 
 Represents standard connections used for tubing that transports fluids through the system.
 
-* <img src="../_static/icons/heat_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Heat Connection Point*
+* <img src="../_static/icons/heat_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Heat Connection Point**
 
 Used for defining heat-transfer relationships between components during simulation.
 These connections affect simulated thermal behavior, but they do not influence the execution of the real protocol.
 
-* <img src="../_static/icons/electronic_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Electronic Connection Point*
+* <img src="../_static/icons/electronic_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Electronic Connection Point**
 
 Used for connections that transmit electronic control signals.
 While devices in ChemUnited can be accessed directly, in certain cases, it is more 
@@ -84,7 +84,7 @@ efficient to trigger device actions through the microcontroller connected to it.
 several devices must be activated simultaneously.
 For more details on the microcontroller implementation, see the referenced documentation.
 
-* <img src="../_static/icons/movement_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Flow Connection Point*
+* <img src="../_static/icons/movement_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Flow Connection Point**
 
 An extension of the flow connection, used to represent the movement of samples—typically handled by mechanical 
 arms, gantries, or other robotic modules.
@@ -95,17 +95,17 @@ A connection is created by linking two compatible connection points.
 When building a connection, the user may add several inflection points to better route the connection through the setup layout.
 Connections can also be reshaped—made more curved or more linear—to improve the clarity and aesthetics of the design.
 
-```{video} ../_static/build_connection.mp4
-:autoplay:
-:loop:
-:width: 700
-```
-
 <div class="warning-block">
 <strong>⚠️ Warning</strong><br>
 A connection can only be established between points of the same type (Flow–Flow, Heat–Heat, Electronic–Electronic, or Movement–Movement).
 </div>
 
+<video width="640" controls>
+    <source src="https://github.com/automatedchemistry/chemunited-docs/tree/main/docs/_static/build_connection.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+</video>
+
+![Alt text](../_static/build_connection.gif)
 
 ## Components & connections properties
 
