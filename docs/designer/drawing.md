@@ -45,38 +45,31 @@ While you can double-click any component to open its properties, this mode also 
 ## Component available
 
 This panel lists all components available for building your setup, organized into categories.
-To add a component to the drawing:
-
-1 - Select it from the desired category,
-
-2 - Click Add,
-
-3 - Then click on the canvas where you want to place it.
 
 <p align="center">
   <img src="../_static/drawing_components_group.png" alt="Image 1" width="45%">
   <img src="../_static/drawing_components.png" alt="Image 2" width="44.27%">
 </p>
 
-## Building Connections
+## Connections
 
 Connections define how components interact within the setup. Each connection begins and ends at a connection point, 
 and each point belongs to a specific category. Only connection points of the same category can be linked.
 
-### Types of Connections Points
+### Types of Connection Points
 
 There are four standardized connection point types:
 
-* <img src="../_static/icons/flow_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Flow Connection Point**
+* <img src="../_static/flow_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Flow Connection Point**
 
 Represents standard connections used for tubing that transports fluids through the system.
 
-* <img src="../_static/icons/heat_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Heat Connection Point**
+* <img src="../_static/heat_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Heat Connection Point**
 
 Used for defining heat-transfer relationships between components during simulation.
 These connections affect simulated thermal behavior, but they do not influence the execution of the real protocol.
 
-* <img src="../_static/icons/electronic_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Electronic Connection Point**
+* <img src="../_static/electronic_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Electronic Connection Point**
 
 Used for connections that transmit electronic control signals.
 While devices in ChemUnited can be accessed directly, in certain cases, it is more 
@@ -84,23 +77,15 @@ efficient to trigger device actions through the microcontroller connected to it.
 several devices must be activated simultaneously.
 For more details on the microcontroller implementation, see the referenced documentation.
 
-* <img src="../_static/icons/movement_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Flow Connection Point**
+* <img src="../_static/movement_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Flow Connection Point**
 
 An extension of the flow connection, used to represent the movement of samples—typically handled by mechanical 
 arms, gantries, or other robotic modules.
-
-### Build examples
-
-A connection is created by linking two compatible connection points.
-When building a connection, the user may add several inflection points to better route the connection through the setup layout.
-Connections can also be reshaped—made more curved or more linear—to improve the clarity and aesthetics of the design.
 
 <div class="warning-block">
 <strong>⚠️ Warning</strong><br>
 A connection can only be established between points of the same type (Flow–Flow, Heat–Heat, Electronic–Electronic, or Movement–Movement).
 </div>
-
-<img src="../_static/build_connection.gif" width="500px">
 
 ## Components & connections properties
 
@@ -126,11 +111,46 @@ More details about each component can be found in the reference section: [Compon
 
 ## Learning example
 
-Back to our learning example, you can follow the step-by-step demonstration shown in the video below.
+Returning to our learning example, you can follow the step-by-step demonstration shown in the video below.
 
-```{video} ../_static/drawing_tutorial.mp4
-:autoplay:
-:loop:
-:width: 700
-```
+### 1 — Insert all components
 
+To add a component to the drawing:
+
+a - Select it from the desired category,
+
+b - Click Add,
+
+c - Then click on the canvas where you want to place it.
+
+Begin by inserting all the components exactly as shown in the illustration:
+
+<img src="../_static/add_valve_tutorial.gif" width="700px">
+
+The components required for this setup are:
+
+* **1 x Syringe Pump** - from `pump` group
+
+* **1 x Sixteen Port Distribution Valve** - from `valve` group
+
+* **1 x Loop** - from `glasses` group
+
+* **5 x Glass Bottle** - from `glasses` group
+
+<p align="center">
+  <img src="../_static/components_tutorial.png" alt="Image 1" width="85%">
+</p>
+
+<div class="info-block"> 
+<strong>💡 Information</strong><br> 
+To set an inclination for the pump, simply double-click the component to open the properties window. 
+Then, adjust the angle to <strong>45°</strong>.
+</div>
+
+### 2 - Build connections
+
+A connection is created by linking two compatible connection points.
+When building a connection, the user may add several inflection points to better route the connection through the setup layout.
+Connections can also be reshaped—made more curved or more linear—to improve the clarity and aesthetics of the design.
+
+<img src="../_static/build_connection.gif" width="500px">
