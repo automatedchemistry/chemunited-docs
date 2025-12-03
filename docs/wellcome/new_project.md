@@ -1,4 +1,4 @@
-# 🧩 Designer Welcome
+# 🧩 Build a new project
 
 In this section, we will walk through all the steps involved in creating a new project.
 You will learn the essential concepts needed to build simple setups and run them successfully.

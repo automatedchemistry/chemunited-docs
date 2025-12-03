@@ -65,11 +65,13 @@
 
 /* Explicit colors for each button (adjust freely) */
 .logo-btn:nth-child(1) { background: #0099cc !important; } /* Install */
-.logo-btn:nth-child(2) { background: #0073e6 !important; } /* Designer */
-.logo-btn:nth-child(3) { background: #009966 !important; } /* Experimenter */
-.logo-btn:nth-child(4) { background: #ff9900 !important; } /* Advanced Designer */
-.logo-btn:nth-child(5) { background: #666666 !important; } /* Developer */
-.logo-btn:nth-child(6) { background: #3366cc !important; } /* Reference */
+.logo-btn:nth-child(2) { background: #0073e6 !important; } /* Drawing */
+.logo-btn:nth-child(3) { background: #009966 !important; } /* Protocols */
+.logo-btn:nth-child(4) { background: #ff9900 !important; } /* Simulation */
+.logo-btn:nth-child(5) { background: #666666 !important; } /* Connectivity */
+.logo-btn:nth-child(6) { background: #3366cc !important; } /* Monitoring */
+.logo-btn:nth-child(7) { background: #ac647c !important; } /* Developer */
+.logo-btn:nth-child(8) { background: #2c5373 !important; } /* Reference */
 
 /* ---------- INFO BLOCK ---------- */
 .info-block {

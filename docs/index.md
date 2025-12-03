@@ -39,41 +39,43 @@ how?
 :maxdepth: 1
 :caption: Start
 
-install.md
+wellcome/install.md
+wellcome/new_project.md
+
 ```
 
 ```{toctree}
 :maxdepth: 1
-:caption: Experimenter
-
-experimenter/welcome.md
-experimenter/build_script.md
-experimenter/monitoring.md
-experimenter/simulation.md
+:caption: Drawing
+drawing/drawing.md
+drawing/tutorial.md
 ```
 
 ```{toctree}
 :maxdepth: 1
-:caption: Designer
-
-designer/welcome.md
-designer/drawing.md
-designer/build_protocols.md
-designer/digital_twins.md
-designer/connectivity.md
-designer/run_monitoring.md
+:caption: Building Protocols
+protocols/build_protocols.md
+protocols/module_workflows.md
+protocols/script_editor.md
+protocols/tutorial.md
 ```
 
 ```{toctree}
 :maxdepth: 1
-:caption: Advanced Designer
+:caption: Simulation
+simulation/digital_twins.md
+```
 
-advanced_designer/welcome.md
-advanced_designer/build_templates.md
-advanced_designer/custom_database.md
-advanced_designer/custom_parameters.md
-advanced_designer/orchestration_class.md
-advanced_designer/project_files.md
+```{toctree}
+:maxdepth: 1
+:caption: Connect devices
+connectivity/connectivity.md
+```
+
+```{toctree}
+:maxdepth: 1
+:caption: Monitoring
+monitoring/run_monitoring.md
 ```
 
 ```{toctree}
