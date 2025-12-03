@@ -130,32 +130,41 @@ Each item in the list has a context menu
 On the right side of the frame there is a set of navigation buttons:
 
 * <img src="../_static/icons/process_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Add process**
+
 Create a new process and add it to the Available list.
 
 * <img src="../_static/icons/variable_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Experiment Parameters**  
+
 Open the main experiment parameter script of the project. 
 This button launches the script editor, which is described in the [next section](script_editor.md).
 
 * <img src="../_static/icons/inspect_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Inspect Modules**  
+
 Inspect modules in the process workflow. After clicking this option, click on the module you want to inspect at the 
 <img src="../_static/icons/python.svg" width="16" style="vertical-align:middle; margin-right:4px;"> icon position.
 
 * <img src="../_static/icons/connection_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Create Connection**
+
 Enable connection mode to build links between modules/blocks.
 Click the icon of the first block, then the icon of the second block to create the connection.
 
 * <img src="../_static/icons/Cut_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Remove Item**
+
 Enable removal mode to delete blocks/modules or the connections between them.
 
 * <img src="../_static/icons/python.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **New Module**  
+
 Create a new module/block.
 
 * <img src="../_static/icons/orchestrator_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Personal Orchestrator Class**  
+
 Advanced option to open the orchestrator class script in the script editor and customize it. 
 This feature is recommended for advanced users who need to build custom classes and objects.
 
 * <img src="../_static/icons/open_folder_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Access Protocols Folder**  
+
 Open the directory where the protocol scripts are stored on the computer.
 
 * <img src="../_static/icons/Save_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Save Project**  
+
 Save the current project protocols.
