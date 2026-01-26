@@ -69,7 +69,8 @@ For example, *module 11* waits until every incoming branch completes before it b
 
 ## Building a module
 
-To create a new module, click New Module (…). A window like the one below will open:
+To create a new module, click <img src="../_static/icons/python.svg" width="16" style="vertical-align:middle; margin-right:4px;"> New Module.
+A window like the one below will open:
 
 ![Alt text](../_static/new_module.png)
 
