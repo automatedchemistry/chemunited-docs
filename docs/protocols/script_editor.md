@@ -148,4 +148,68 @@ def script(
     ...
 ```
 
+## Special blocks
 
+Two module types behave differently from regular Script modules: **Loop** and **Conditional**.
+Both modules must return a **boolean** (`True` or `False`), which the workflow uses to decide what to execute next.
+
+In a **Loop** module, the boolean decides whether the loop continues or stops.
+
+In a **Conditional** module, the boolean decides which branch will be executed.
+
+### 1) Loop module
+
+A Loop module is typically used with an **iterator** to control how many times a section of the workflow should repeat.
+
+**How it works**
+
+* The loop module is executed.
+
+* If the script returns `False`, the workflow repeats the loop (runs the loop branch again).
+
+* If the script returns `True`, the workflow exits the loop and continues to the next module after the loop.
+
+Example: loop with an iterator
+
+```python
+...
+def script(
+    platform: "PersonalOrchestrator",
+    process_parameters: "ProcessParameters",
+    parameters: "MainParameters",
+) -> bool:
+    parameters.add_iterator("loop_1")  # Creates/increments loop_1 at each execution
+
+    # Stop after 3 iterations (0, 1, 2)
+    if parameters["loop_1"] > 2:
+        del parameters["loop_1"]       # Optional cleanup
+        return True                    # Exit loop
+    else:
+        return False                   # Continue looping
+```
+<div class="info-block"> <strong>
+💡 Information</strong><br> Because the loop decision is based on the function return (True/False), you can build very flexible loops (e.g., 
+looping until a sensor reaches a target, looping until a file exists, etc.), not only fixed iteration counts.
+</div>
+
+### 2) Conditional module
+
+A **Conditional** module chooses between two branches based on the boolean value returned by its script.
+
+**How it works**
+
+If the script returns `True`, the workflow follows the **True branch**.
+
+If the script returns `False`, the workflow follows the **False branch**.
+
+Example: simple conditional
+
+```python
+...
+def script(
+    platform: "PersonalOrchestrator",
+    process_parameters: "ProcessParameters",
+    parameters: "MainParameters",
+) -> bool:
+    return True  # Follow the True branch
+```

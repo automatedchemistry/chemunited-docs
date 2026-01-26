@@ -1,4 +1,4 @@
-# <img src="../_static/icons/process_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> Process workflow
+# Process workflow
 
 A process is built as a workflow made of multiple modules.
 The workflow controls how modules are executed, handling:
