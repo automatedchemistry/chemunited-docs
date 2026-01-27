@@ -114,7 +114,7 @@ This includes:
 
 * `recent_projects.toml` – list of project paths.
 
-# 🧾 Logging
+## 🧾 Logging
 
 The application logs:
 
