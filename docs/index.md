@@ -71,6 +71,7 @@ simulation/digital_twins.md
 :maxdepth: 1
 :caption: Connect devices
 connectivity/connectivity.md
+connectivity/chemunited_drive.md
 ```
 
 ```{toctree}
