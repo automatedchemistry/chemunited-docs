@@ -21,7 +21,7 @@ It bridges the gap between device setup and automation, allowing you to:
 
 # 🖼️ Application Workflow
 
-### 1. Main Interface
+## 1. Main Interface
 
 The main window provides four tabs for navigation:
 
@@ -32,7 +32,7 @@ The main window provides four tabs for navigation:
 | **Discover** | Automatically find connected FlowChem devices. |
 | **Logging**  | View logs and FlowChem process messages.       |
 
-### 2. Projects View
+## 2. Projects View
 
 ![ChemUnited-Drive](../_static/projects.png)
 
@@ -44,7 +44,7 @@ Each card offers:
 
 * 📂 Open Folder – Open the project directory in the system file browser.
 
-### 3. Configuration View
+## 3. Configuration View
 
 ![ChemUnited-Drive](../_static/run01.png)
 
@@ -58,7 +58,7 @@ Use:
 
 A progress bar shows the initialization status, and the application provides live feedback and clickable server links once the process is running.
 
-### 4. Run and Monitor FlowChem
+## 4. Run and Monitor FlowChem
 
 ![ChemUnited-Drive](../_static/run02.png)
 
@@ -76,7 +76,7 @@ Once the server starts (http://127.0.0.1:8000), a direct link appears in the GUI
 
 Stopping the server gracefully sends a SIGINT or CTRL_BREAK_EVENT, ensuring a clean shutdown.
 
-## 🚀 Running the Application
+# 🚀 Running the Application
 
 To start the GUI manually, run:
 
@@ -90,7 +90,7 @@ or, if installed as a package:
 chemunited-drive
 ```
 
-## 🧰 Device Discovery
+# 🧰 Device Discovery
 
 ![ChemUnited-Drive](../_static/devices.png)
 
@@ -102,7 +102,7 @@ The Discover tab uses built-in FlowChem finders to detect connected devices:
 
 Each discovered device automatically appends its configuration block to the current TOML file.
 
-## 🗂️ Temporary Files
+# 🗂️ Temporary Files
 
 All temporary and recent project files are stored in:
 
@@ -114,7 +114,7 @@ This includes:
 
 * `recent_projects.toml` – list of project paths.
 
-## 🧾 Logging
+# 🧾 Logging
 
 The application logs:
 
