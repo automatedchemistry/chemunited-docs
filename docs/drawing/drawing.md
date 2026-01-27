@@ -77,7 +77,7 @@ efficient to trigger device actions through the microcontroller connected to it.
 several devices must be activated simultaneously.
 For more details on the microcontroller implementation, see the referenced documentation.
 
-* <img src="../_static/movement_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Flow Connection Point**
+* <img src="../_static/movement_point.png" width="16" style="vertical-align:middle; margin-right:4px;"> **Movement Connection Point**
 
 An extension of the flow connection, used to represent the movement of samples—typically handled by mechanical 
 arms, gantries, or other robotic modules.
@@ -95,7 +95,7 @@ The most important field is the name, which serves as the unique identifier for 
 <div class="warning-block">
 <strong>⚠️ Warning</strong><br>
 Choose the component name carefully. All properties, protocols, and orchestration features are linked to this name. 
-If you need to rename a component later, the recommended approach is to <b>remove it and recreate it</b> 
+If you need to rename a component later, the recommended approach is to <b>remove and recreate it again</b> 
 using the new name. 
 </div>
 
