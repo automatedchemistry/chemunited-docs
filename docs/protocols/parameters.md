@@ -123,7 +123,8 @@ active: bool = Field(
 
 ## How parameters appear to the user
 
-After defining these parameters, the platform automatically generates the configuration window where the user can view and edit them (depending on the Behavior settings):
+After defining these parameters, the platform automatically generates the parameters list 
+where the user can inspect if it is corrected build.
 
 ![Alt text](../_static/parameters_window_view.png)
 

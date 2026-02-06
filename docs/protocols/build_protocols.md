@@ -62,30 +62,6 @@ When building protocols, each process can have one of two statuses:
 
 The process is defined and stored in the protocol, but **not** currently scheduled for execution.
 
-2. **Active**
-
-The process is enabled and will be executed in simulation/monitoring mode.
-
-These statuses allow the user to define multiple processes and then decide **which ones** will run and **in which order**.  
-The user can also repeat the same process multiple times by adding it more than once to the *Active* list.
-
-<p>
-  <img src="../_static/process_status.png"
-       style="float:left; width:20%; margin-left:2rem; margin-right:4rem; margin-bottom:2rem;">
-
-In the example, we have four independent processes in the **Available** list, while the **Active** list contains 
-three entries, where `process01` appears twice. 
-In this case, the execution sequence will be:
-    
-`process01` → `process02` → `process01`
-    
-This flexibility in arranging the Active list (and repeating individual processes) allows the user to customize
-different execution scenarios according to their needs.
-
-.
-
-</p>
-
 ## ChemUnited Protocols Panel
 
 The main protocols panel is shown below.
@@ -104,24 +80,18 @@ inspecting the physical setup so the user can write commands correctly.
 In this area the process workflow is built by adding new modules/blocks and connecting them. 
 The details of how to build and edit workflows are explained in the [next section](module_workflows.md).
 
-3. **Available and Active process lists**
+3. **Available process lists**
 
-On the right side you will find two lists: **Available** and **Active** processes.
+On the right side you will find two lists: **Available** processes.
 Each item in the list has a context menu 
 (accessed via <img src="../_static/icons/Application_black.svg" width="16" style="vertical-align:middle; margin-right:4px;">) with the following options.
 
 **For items in the Available list:**
-
-   - ➡️ **send**: Move the item to the Active list.  
+ 
    - ✏️ **edit**: Rename the item.  
    - <img src="../_static/icons/python.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **parameter**: Open the process parameter settings.  
    - 📚 **duplicate**: Create a copy of the item.  
    - <img src="../_static/icons/trash_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **remove**: Delete the item.
-
-   **For items in the Active list:**
-
-   - 📚 **duplicate**: Create a copy of the item.  
-   - <img src="../_static/icons/trash_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **remove**: Remove the item from the Active list.
 
 ---
 

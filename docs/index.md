@@ -58,6 +58,7 @@ protocols/build_protocols.md
 protocols/module_workflows.md
 protocols/script_editor.md
 protocols/parameters.md
+protocols/pre_running.md
 protocols/tutorial.md
 ```
 
