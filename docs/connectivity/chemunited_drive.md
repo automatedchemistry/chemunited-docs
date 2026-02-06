@@ -25,12 +25,14 @@ It bridges the gap between device setup and automation, allowing you to:
 
 The main window provides four tabs for navigation:
 
-| Tab          | Purpose                                        |
-| ------------ | ---------------------------------------------- |
-| **FlowChem** | View and edit the configuration file.          |
-| **Project**  | Manage and open existing project folders.      |
-| **Discover** | Automatically find connected FlowChem devices. |
-| **Logging**  | View logs and FlowChem process messages.       |
+| Tab                  | Purpose                                                   |
+|----------------------|-----------------------------------------------------------|
+| **FlowChem**         | View and edit the configuration file.                     |
+| **Project**          | Manage and open existing project folders.                 |
+| **Discover and Add** | Automatically find connected FlowChem devices and add it. |
+| **Logging**          | View logs and FlowChem process messages.                  |
+| **Settings**         | Settings of the application.                              |
+
 
 ### 2. Projects View
 
@@ -57,6 +59,10 @@ Use:
 * *Stop* → to terminate it.
 
 A progress bar shows the initialization status, and the application provides live feedback and clickable server links once the process is running.
+
+In the device added the user can inspect the device presented in the config file and test its connectivity individually. 
+
+![img.png](../_static/run011.png)
 
 ### 4. Run and Monitor FlowChem
 
@@ -90,7 +96,7 @@ or, if installed as a package:
 chemunited-drive
 ```
 
-## 🧰 Device Discovery
+## 🧰 Device Discovery or manually added
 
 ![ChemUnited-Drive](../_static/devices.png)
 
@@ -101,6 +107,9 @@ The Discover tab uses built-in FlowChem finders to detect connected devices:
 * Ethernet devices (via broadcast search using user-defined IP).
 
 Each discovered device automatically appends its configuration block to the current TOML file.
+
+The user also has the option to automatically add the device configuration block.
+This tool is useful for adding devices for which the finder feature is unavailable.
 
 ## 🗂️ Temporary Files
 
@@ -125,3 +134,132 @@ The application logs:
 * Full traceback details in case of exceptions.
 
 Logs appear both in the Logging tab and in the console (via loguru).
+
+## ⚙️ Settings
+
+ChemUnited-Drive can run in Virtual Mode, which replaces the standard flowchem backend with flowchem-virtual.
+
+### Why this is useful
+
+* Allows you to test the full workflow **without physical hardware**
+
+* Useful for training, demos, debugging, or developing protocols when devices are not available
+
+* Helps validate that your configuration file is correct before connecting real instruments
+
+### Where to enable it
+
+* Settings → Virtual Mode
+
+## 🧑‍🏫 Tutorial
+
+This tutorial demonstrates the main features of ChemUnited-Drive using a simple example configuration.
+We will configure two devices from **HarvardApparatus** and **Knauer**:
+
+* Elite11 syringe pump
+
+* Distribution Valve
+
+> **Goal:** Create a configuration file that launches a FlowChem server exposing these devices, validate connectivity, and start the server.
+
+---
+
+### Step 1 — Start ChemUnited-Drive
+
+After creating a project in ChemUnited Orchestrator, open ChemUnited-Drive by running:
+
+```bash
+chemunited-drive
+```
+
+In the main window, select the project configuration workflow by clicking:
+<img src="../_static/icons/play_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> -
+`Open Project Configuration File`.
+
+This option helps you create or edit the configuration file associated with your project.
+
+<div class="info-block"> <strong>💡 Note</strong><br> You can use ChemUnited-Drive even without a 
+ChemUnited Orchestrator project. The project integration is provided only for convenience
+(it helps locate and manage configuration files).
+</div>
+
+---
+
+### Step 2 — Add device blocks (discover or manual)
+
+After opening the configuration editor, you can add devices in two ways:
+
+* **Discover devices** (recommended when hardware is connected)
+
+* **Add configuration blocks manually** (useful for Virtual Mode or when preparing the file in advance)
+
+In this tutorial, we do not have real hardware connected, so we will add blocks manually:
+
+<img src="../_static/connectivity01.gif" width="900px">
+
+---
+
+### Step 3 — Configure device parameters
+
+Once the device block is added, configure the connection and device parameters 
+(e.g., address, port, serial settings, channel IDs, etc.).
+
+If you are unsure what each parameter means, refer to FlowChem’s device documentation:
+[Supported devices and configuration reference](https://flowchem.readthedocs.io/en/latest/user-guides/reference/devices/supported_devices.html).
+
+<img src="../_static/connectivity02.gif" width="900px">
+
+At the end of this step, ChemUnited-Drive generates a **TOML configuration file**.
+
+Example structure (illustrative):
+
+```toml
+[device.MyElite11]
+type = "Elite11"
+port = "COM4"
+syringe_diameter = "4.608 mm"
+syringe_volume = "1 ml"
+address = 1
+force = 30
+
+[device.MyKnauer]
+type = "KnauerValve"
+ip_address = "141.14.234.67"
+valve_type = "16"
+```
+
+---
+
+### Step 4 — Run device diagnostics
+
+Before launching the server, run Diagnostics to verify each device configuration independently.
+This step is important because it helps you detect connection problems early (wrong address, missing device, incorrect parameters, etc.).
+
+<div class="warning-block"> <strong>💡 Information</strong><br> In this tutorial we use <strong>Virtual Mode</strong> 
+for demonstration, since no real devices are connected. Enable it in <code>Settings → Virtual Mode</code>. 
+</div> 
+
+<img src="../_static/connectivity03.gif" width="900px">
+
+---
+
+### Step 5 — Launch the FlowChem server
+
+Once diagnostics succeed, launch the server.
+ChemUnited-Drive will start the FlowChem service and expose the configured devices through an API.
+
+You can then:
+
+open the server link directly (if provided), or
+
+inspect the logs to confirm the server is running and devices were loaded correctly.
+
+<img src="../_static/connectivity04.gif" width="900px">
+
+---
+
+### What you can do next
+
+After the server is running, return to ChemUnited Orchestrator and associate the online devices with the 
+abstract components in your workflow graph (drag-and-drop association). Once connected, your protocol can 
+send commands to the devices via API.
