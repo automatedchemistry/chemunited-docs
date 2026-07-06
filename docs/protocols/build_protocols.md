@@ -77,64 +77,57 @@ inspecting the physical setup so the user can write commands correctly.
 
 2. **Process workflow canvas**
 
-In this area the process workflow is built by adding new modules/blocks and connecting them. 
+Below the platform layout, this area shows the workflow graph of the currently selected process. 
 The details of how to build and edit workflows are explained in the [next section](module_workflows.md).
 
-3. **Available process lists**
+3. **Process list and navigation**
 
-On the right side you will find two lists: **Available** processes.
-Each item in the list has a context menu 
-(accessed via <img src="../_static/icons/Application_black.svg" width="16" style="vertical-align:middle; margin-right:4px;">) with the following options.
+On the right side you will find the **Process List**, with one row per process. Each row has a context menu
+(accessed via the **···** button) with the following options:
 
-**For items in the Available list:**
- 
    - ✏️ **edit**: Rename the item.  
    - <img src="../_static/icons/python.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **parameter**: Open the process parameter settings.  
    - 📚 **duplicate**: Create a copy of the item.  
    - <img src="../_static/icons/trash_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **remove**: Delete the item.
 
+To the right of the Process List, a vertical navigation rail switches between: **Home**, **Process List**,
+**Command List** (see below), and **Main Parameters** (opens the main experiment parameter script, described in
+[Parameters](parameters.md)).
+
 ---
 
-### Navigation options
+### Command List
 
-On the right side of the frame there is a set of navigation buttons:
+The **Command List** shows every command exposed by the devices associated with the platform (see
+[Connect Devices](../connectivity/connectivity.md)), so you can build a workflow without writing any code.
 
-* <img src="../_static/icons/process_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Add process**
+![Alt text](../_static/protocol_command_list.png)
 
-Create a new process and add it to the Available list.
+Commands are grouped by device — each group header shows the device's custom name and its component type (e.g.
+`AS SP valve` — `ThreePortFourPositionValve`). Under each group, every command is listed with:
 
-* <img src="../_static/icons/variable_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Experiment Parameters**  
+* its name (e.g. `monitor_position`, `position`, `is-reachable`),
+* an HTTP method badge (**GET** or **PUT** — see [Script Editor](script_editor.md) for what each method means),
+* and its device name, method, and number of parameters.
 
-Open the main experiment parameter script of the project. 
-This button launches the script editor, which is described in the [next section](script_editor.md).
+Use the **search bar** at the top to filter commands by name or device instead of scrolling through every group.
 
-* <img src="../_static/icons/inspect_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Inspect Modules**  
+To use a command, **drag it directly from the Command List onto the workflow canvas** — this creates a command
+block for that exact device/command pair, ready to connect into your workflow.
 
-Inspect modules in the process workflow. After clicking this option, click on the module you want to inspect at the 
-<img src="../_static/icons/python.svg" width="16" style="vertical-align:middle; margin-right:4px;"> icon position.
+---
 
-* <img src="../_static/icons/connection_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Create Connection**
+### Workflow canvas menu
 
-Enable connection mode to build links between modules/blocks.
-Click the icon of the first block, then the icon of the second block to create the connection.
+Double-clicking the workflow canvas opens a context menu with the actions used to build the workflow:
 
-* <img src="../_static/icons/Cut_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Remove Item**
+* **Add Script** — creates a new Script module/block.
+* **Add Loop** — creates a new Loop module/block.
+* **Add Conditional** — creates a new Conditional module/block.
+* **Access Process Parameters** — opens the parameter settings for the current process.
+* **Simulate Process** — runs this process in simulation mode.
 
-Enable removal mode to delete blocks/modules or the connections between them.
+At the bottom of the frame, two standalone buttons are always available:
 
-* <img src="../_static/icons/python.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **New Module**  
-
-Create a new module/block.
-
-* <img src="../_static/icons/orchestrator_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Personal Orchestrator Class**  
-
-Advanced option to open the orchestrator class script in the script editor and customize it. 
-This feature is recommended for advanced users who need to build custom classes and objects.
-
-* <img src="../_static/icons/open_folder_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Access Protocols Folder**  
-
-Open the directory where the protocol scripts are stored on the computer.
-
-* <img src="../_static/icons/Save_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Save Project**  
-
-Save the current project protocols.
+* <img src="../_static/icons/process_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **New Process** — creates a new process and adds it to the Process List.
+* <img src="../_static/icons/Save_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Save** — saves the current project protocols.

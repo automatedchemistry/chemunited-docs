@@ -37,7 +37,7 @@ how?
 
 ```{toctree}
 :maxdepth: 1
-:caption: Start
+:caption: Install and Setting Up
 
 wellcome/install.md
 wellcome/new_project.md
@@ -46,39 +46,41 @@ wellcome/new_project.md
 
 ```{toctree}
 :maxdepth: 1
-:caption: Drawing
+:caption: Design and Test
 drawing/drawing.md
-drawing/tutorial.md
-```
-
-```{toctree}
-:maxdepth: 1
-:caption: Building Protocols
 protocols/build_protocols.md
 protocols/module_workflows.md
+protocols/command.md
 protocols/script_editor.md
 protocols/parameters.md
-protocols/pre_running.md
-protocols/tutorial.md
-```
-
-```{toctree}
-:maxdepth: 1
-:caption: Simulation
 simulation/digital_twins.md
-```
-
-```{toctree}
-:maxdepth: 1
-:caption: Connect devices
 connectivity/connectivity.md
 connectivity/chemunited_drive.md
+protocols/pre_running.md
 ```
 
 ```{toctree}
 :maxdepth: 1
-:caption: Monitoring
+:caption: Execute and Monitoring
 monitoring/run_monitoring.md
+execution/overview.md
+execution/dashboard.md
+execution/api_and_mcp.md
+```
+
+```{toctree}
+:maxdepth: 1
+:caption: Reference
+
+reference/components.md
+```
+
+```{toctree}
+:maxdepth: 1
+:caption: Tutorial
+tutorials/drawing_tutorial.md
+tutorials/protocols_tutorial.md
+tutorials/connectivity_tutorial.md
 ```
 
 ```{toctree}
@@ -89,14 +91,8 @@ developer/welcome.md
 developer/software_design.md
 developer/add_components.md
 developer/add_features.md
+developer/customize_dashboard.md
 developer/backend.md
-```
-
-```{toctree}
-:maxdepth: 1
-:caption: Reference
-
-reference/components.md
 ```
 
 ---
@@ -115,7 +111,7 @@ Max Planck Institute of Colloids and Interfaces - Automated Chemistry Group
 
 ```{raw} html
 <a href="https://github.com/automatedchemistry/chemunited" target="_blank" style="text-decoration:none;">
-  <img src="_static/github.svg" alt="GitHub" width="28" style="vertical-align:middle; margin-right:6px;">
+  <img src="_static/icons/github.svg" alt="GitHub" width="28" style="vertical-align:middle; margin-right:6px;">
   <strong>View ChemUnited on GitHub</strong>
 </a>
 ```

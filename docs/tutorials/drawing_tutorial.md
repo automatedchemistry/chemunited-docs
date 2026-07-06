@@ -1,6 +1,14 @@
 # 🧑‍🏫 Tutorial Example
 
-Returning to our learning example, you can follow the step-by-step demonstration shown in the video below.
+This tutorial guides you through building a very simple setup, step by step, so you can learn how ChemUnited
+works in practice. The goal is to build the simple setup shown below:
+
+<p align="center">
+<img src="../_static/transfer_fluid.svg" alt="Image 1" width="85%">
+</p>
+
+This setup is responsible for transferring a defined volume of fluid from one vessel to another. Follow the
+step-by-step demonstration shown below.
 
 ## 1 — Insert all components
 

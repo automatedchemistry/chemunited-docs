@@ -36,6 +36,16 @@ Save the script.
 
 Formats the script using the [black style format](https://black.readthedocs.io/en/stable/index.html).
 
+## Command List tab
+
+The Script Editor window has two tabs: **Module script** (the Python source shown above) and **Command List**.
+
+![Alt text](../_static/command_list.png)
+
+The Command List tab shows every command that has been added to the script so far, one line per command, in the
+order they will execute. This gives a quick, code-free overview of what a module actually does — useful for
+reviewing or double-checking a script without reading through the generated Python line by line.
+
 ## Building a command
 
 The command builder window (helper tool) is shown below:

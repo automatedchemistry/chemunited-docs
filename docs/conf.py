@@ -45,6 +45,9 @@ myst_enable_extensions = [
     "substitution", # variable placeholders
 ]
 
+# Enable linking to headings within/across pages via #heading-slug
+myst_heading_anchors = 3
+
 # Custom CSS (optional)
 html_css_files = [
     'custom.css',

@@ -38,3 +38,9 @@ For this tutorial, you only need to click **Start Protocol**. The application wi
 **Active Processes** in order.
 
 <img src="../_static/monitoring02.gif" width="900px">
+
+## Next steps
+
+The Monitor window above is the desktop-side view of a run. Once a protocol starts, execution is actually handed off
+to a separate execution engine (the "work-server") that also exposes a browser dashboard and a remote/automation API
+— see [Execution & Dashboard](../execution/overview.md) to control or inspect a run from a browser or another machine.

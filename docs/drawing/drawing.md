@@ -10,46 +10,50 @@ Below is a description of the main tools available in this window:
 
 Centers the drawing on the canvas. This is useful for reorienting the view and exploring your setup more easily.
 
-* <img src="../_static/icons/Move_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Move Object**
-
-Activates the mode to move components or connections within the drawing area.
-
-* <img src="../_static/icons/Add_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Create Connection**
-
-Enables the connection mode, allowing you to build connections between components.
-
-* <img src="../_static/icons/Cut_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Remove Object**
-
-Allows the removal of selected components or existing connections from the drawing.
-
-* <img src="../_static/icons/Save_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Save Draw**
+* <img src="../_static/icons/Save_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Save**
 
 Saves all modifications made to the current project file.
 
-* <img src="../_static/icons/Add_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Add Component**
+* <img src="../_static/icons/Add_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Add**
 
 Opens the component library, from which you can add new electronic elements or utensils to the setup.
 
-* <img src="../_static/icons/Info_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Inspect Draw**
+## 🖱️ Right-Click Menu
 
-This mode helps you inspect the properties of components.
-While you can double-click any component to open its properties, this mode also brings all components to the front of the drawing to make inspection easier.
+Right-clicking gives you quick access to context-specific actions, depending on what you click on.
 
-<div class="info-block">
-  <strong>💡 Information</strong><br>
-  To <b>view or edit the properties of a connection</b>, activate <b>Inspect Draw</b> mode  
-  and click on the <b>inflexion points</b> of the connection to display its parameters.
-</div>
+<p align="center">
+  <img src="../_static/context_menu_connection.png" alt="Image 1" width="30%">
+  <img src="../_static/context_menu_component.png" alt="Image 2" width="30%">
+  <img src="../_static/context_menu_canvas.png" alt="Image 2" width="30%">
+</p>
+<p align="center"><em>Right-click menu on a connection, a component, and the empty canvas.</em></p>
 
+### On a connection
+
+* **Switch to Curved** — toggles the connection's routing between straight segments and a curved line.
+* **Add Inflection Point** — inserts a new draggable waypoint, useful for routing the connection around other
+  components.
+* **Remove Inflection Point** — removes the closest inflection point; disabled when the connection has none.
+* **Switch to Air Pressure** — changes the connection's role to represent a pneumatic/air-pressure line instead of
+  a standard fluid line.
+* **Properties** — opens the connection's property editor.
+* **Delete** — removes the connection.
+
+### On a component
+
+* **Properties** — opens the component's property editor.
+* **Delete** — removes the component from the platform.
+
+### On the empty canvas
+
+* **Show Grid** — toggles a background grid on the canvas, useful for aligning components.
+* **Dark Background** — toggles the canvas background between light and dark.
+* **Components in Front** — brings every component to the front of the drawing.
 
 ## Component available
 
 This panel lists all components available for building your setup, organized into categories.
-
-<p align="center">
-  <img src="../_static/drawing_components_group.png" alt="Image 1" width="45%">
-  <img src="../_static/drawing_components.png" alt="Image 2" width="44.27%">
-</p>
 
 ## Connections
 
