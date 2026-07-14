@@ -1,205 +1,120 @@
 # Script Editor
 
-After creating a module, you can open and edit its script from the workflow editor.
+The Script Editor is where you write and edit the Python code behind a **Script**, **Loop**, or **Conditional**
+module (see [module types](module_workflows.md#module-types)). It also offers code-free helpers for inserting
+commands and parameters, so you don't need to remember exact syntax or component names.
 
 ## Opening the script
 
-1. Enable **Inspection Mode** (module inspection).
-
-2. Click the **module icon** (the block) you want to inspect.
-
-The Script Editor window will appear:
+Double-click the module (the block) you want to inspect on the workflow canvas. The Script Editor window opens
+with the module's Python source on the left and a toolbar on the right:
 
 ![Alt text](../_static/editor.png)
 
-* <img src="../_static/icons/build.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **PathWay Selection**
+| Icon | Action | Description |
+|---|---|---|
+| <img src="../_static/icons/play_black.svg" width="16"> | **Add Command** | Opens a dialog to build a device command and insert it as a new line of code. It relies on the same device/command information as the [Command List](build_protocols.md#command-list) you can drag onto the canvas, but here the result is a line of Python appended to the script instead of a standalone Command block. The new line is always added to the **end of the method currently open in the editor**. |
+| <img src="../_static/icons/process_black.svg" width="16"> | **Add Process Parameter** | Inserts a reference to one of the current process's local parameters (see [Parameters](parameters.md)). |
+| <img src="../_static/icons/variable_black.svg" width="16"> | **Add Main Parameter** | Inserts a reference to one of the project's global parameters, shared across every process. |
+| <img src="../_static/icons/Save_black.svg" width="16"> | **Save** | Saves the script. |
+| <img src="../_static/icons/Broom_black.svg" width="16"> | **Set Black Format** | Auto-formats the script using [Black](https://black.readthedocs.io/en/stable/index.html), Python's standard code formatter. |
 
-Helper tool to insert special commands for moving fluid between points on the platform.
+## Inserting a parameter
 
-* <img src="../_static/icons/play_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Add Command**
+**Add Process Parameter** and **Add Main Parameter** behave like the [Command List](build_protocols.md#command-list)
+on the workflow canvas: clicking the button opens a list of the parameters available in that scope, and you drag
+the one you want directly into the script. The reference is inserted at the **end of the method currently open in
+the editor** — from there, cut and paste it wherever it's actually needed in the code.
 
-Helper tool to insert a new command into the script.
+* A **process parameter** named `pump_vol` is inserted as `self.config.pump_vol`.
+* A **main parameter** named `pump_vol` is inserted as `self.main_parameters.pump_vol`.
 
-* <img src="../_static/icons/process_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Add Process Parameter**
+## Generated code
 
-Inserts parameters defined for the current process.
+Every module method receives `self` (the process instance) and `ctx: NodeExecutionContext` (the current node's
+execution context), and returns a `bool`. Every time you build a command through **Add Command**, the editor
+appends the corresponding Python call to the method currently open in the editor.
 
-* <img src="../_static/icons/variable_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Add Main Parameter**
-
-Inserts global protocol parameters (shared across processes, if applicable).
-
-* <img src="../_static/icons/Save_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Save**
-
-Save the script.
-
-* <img src="../_static/icons/Broom_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Set Black Format**
-
-Formats the script using the [black style format](https://black.readthedocs.io/en/stable/index.html).
-
-## Command List tab
-
-The Script Editor window has two tabs: **Module script** (the Python source shown above) and **Command List**.
-
-![Alt text](../_static/command_list.png)
-
-The Command List tab shows every command that has been added to the script so far, one line per command, in the
-order they will execute. This gives a quick, code-free overview of what a module actually does — useful for
-reviewing or double-checking a script without reading through the generated Python line by line.
-
-## Building a command
-
-The command builder window (helper tool) is shown below:
-
-![Alt text](../_static/command_build.png)
-
-In this window, you can configure:
-
-* Device
-
-Lists all available electronic components in the platform.
-
-* Command Available
-
-Shows the commands supported by the selected device, including a short description of what each command does.
-
-<div class="info-block"> <strong>
-💡 Information</strong><br> Commands are organized by HTTP method: <strong>GET</strong>, <strong>PUT</strong>, and <strong>POST</strong>.
-<br><br> <strong>GET</strong> is typically used to read status or measurements (e.g., sensors).
-<br> <strong>PUT</strong> is typically used to change the device state or behavior (e.g., actuators).
-<br> <strong>POST</strong> is less common and is usually used to send larger or more complex data payloads.
-</div>
-
-### Command options
-
-In the options of the commands we also have.
-
-#### Execution control
-
-Execution control defines how the workflow should wait before continuing to the next command. 
-It includes three configurable options and one informational field, as illustrated below:
-    
-<img src="../_static/command_timeline.png" width="400" style="vertical-align:middle; margin-right:45px;">
-
-* **Customize Wait Time After Execution**
-        
-    If enabled, the script waits for a custom duration after running the command.
-    The default delay is 1 second, but in some cases the software may compute an internal delay automatically based on the command.
-       
-* **Wait Time (s)**
-  
-   A fixed delay (in seconds) applied before the next command runs.
-   Useful to avoid timing conflicts, device overload, or overlapping actions in the physical setup.
-
-* **Wait for Feedback Status Change**
-                            
-    If enabled, the script pauses until a status change is detected from the device.
-    This ensures the workflow continues only when the system is ready.
-                       
-* **Feedback Trigger Command (Informative)**
-      
-    Internal command used by the system to block execution until a hardware or process condition is met.
-    It is issued after the main command and after the configured wait time.
-
-#### Parameters
-
-Defines the input parameters required by the selected command (if any).
-The available fields depend on the chosen device and command.
-
-## Accessing Parameters
-
-When you click `Add Process Parameter` or `Add Main Parameter`, a list of available parameters is displayed.
-Select the parameter you want to insert and click `Proceed`.
-
-## Command Line
-
-After you build a command, the editor automatically generates a block of Python code.
-
-In the example below, the script sends a command to pump `"pump A"` to infuse 5 mL at 20 mL/min.
-After sending the command, the script waits 1 second and then continues to the next line.
-Note that the command does not wait for pump feedback because `wait_feedback_status=False`.
+In the example below, the script sends a command to pump `"pump A"` to infuse 5 mL at 20 mL/min. After sending
+the command, the script waits 1 second and then continues to the next line. Note that the command does not wait
+for pump feedback, because `wait_feedback_status=False`.
 
 ```python
 ...
-def script(
-    platform: "PersonalOrchestrator",
-    process_parameters: "ProcessParameters",
-    parameters: "MainParameters",
-):
-    platform["pump A"].put(  # Component name: pump A
+def script_1(self, ctx: NodeExecutionContext) -> bool:
+    self.platform["pump A"].put(  # Component name: pump A
         "infuse",       # Command name
         rate="20.0 milliliter / minute",  # Command parameter
         volume="5 milliliter",            # Command parameter
-        wait=1.0,                         # Custom wait time (seconds)
+        wait_time=1.0,                    # Custom wait time (seconds)
         # If True, waits for device feedback (e.g., pump finishes infusing)
         wait_feedback_status=False,
+        feedback_status_command="is-pumping",
+        feedback_answer="false",
     )
-    ...
+    return True
 ```
 
-If you want to use a predefined parameter from the process or main parameters, insert it in the desired field (or copy and paste it into the generated code).
+If you want to use a predefined parameter from the process or main parameters instead of a literal value, insert
+it with **Add Process Parameter** / **Add Main Parameter**, or paste the reference directly into the field.
 
-In the example below, the predefined `pump_vol` from `process_parameters` is used as the infusion volume:
+In the example below, the process parameter `pump_vol` (defined on `ProcessConfig`, see [Parameters](parameters.md))
+is used as the infusion volume instead of a literal value:
 
 ```python
 ...
-def script(
-    platform: "PersonalOrchestrator",
-    process_parameters: "ProcessParameters",
-    parameters: "MainParameters",
-):
-    platform["pump A"].put(  # Component name: pump A
+def script_1(self, ctx: NodeExecutionContext) -> bool:
+    self.platform["pump A"].put(  # Component name: pump A
         "infuse",       # Command name
-        rate="20.0 milliliter / minute",   # Command parameter
-        volume=process_parameters.pump_vol, # Use predefined value
-        wait=1.0,                           # Custom wait time (seconds)
+        rate="20.0 milliliter / minute",  # Command parameter
+        volume=self.config.pump_vol,      # Use predefined process parameter
+        wait_time=1.0,                    # Custom wait time (seconds)
         # If True, waits for device feedback (e.g., pump finishes infusing)
         wait_feedback_status=False,
+        feedback_status_command="is-pumnping",
+        feedback_answer="false",
     )
-    ...
+    return True
 ```
 
 ## Special blocks
 
-Two module types behave differently from regular Script modules: **Loop** and **Conditional**.
-Both modules must return a **boolean** (`True` or `False`), which the workflow uses to decide what to execute next.
+Every module script returns a **boolean** (`True` or `False`), but only two [module types](module_workflows.md#module-types)
+actually use that return value to drive the workflow's logic: **Loop** and **Conditional**.
 
-In a **Loop** module, the boolean decides whether the loop continues or stops.
-
-In a **Conditional** module, the boolean decides which branch will be executed.
+* In a **Loop** module, the boolean decides whether the loop continues or stops.
+* In a **Conditional** module, the boolean decides which branch is executed.
 
 ### 1) Loop module
 
-A Loop module is typically used with an **iterator** to control how many times a section of the workflow should repeat.
+A Loop module is typically used with an **iterator** to control how many times a section of the workflow should
+repeat.
 
 **How it works**
 
-* The loop module is executed.
-
+* The loop module runs.
 * If the script returns `False`, the workflow repeats the loop (runs the loop branch again).
-
 * If the script returns `True`, the workflow exits the loop and continues to the next module after the loop.
 
-Example: loop with an iterator
+`ctx.iteration` is the loop's built-in counter: it is `0` on the first pass and is incremented automatically every
+time the loop triggers a loopback, so you don't need to manage a counter parameter yourself.
+
+Example: loop over an array of flow rates defined as a process parameter
 
 ```python
 ...
-def script(
-    platform: "PersonalOrchestrator",
-    process_parameters: "ProcessParameters",
-    parameters: "MainParameters",
-) -> bool:
-    parameters.add_iterator("loop_1")  # Creates/increments loop_1 at each execution
+def loop_1(self, ctx: NodeExecutionContext) -> bool:
+    if ctx.iteration >= len(self.config.FlowrateArray):
+        ctx.runtime.status_message = "All flow rates completed."
+        return True  # Exit loop
 
-    # Stop after 3 iterations (0, 1, 2)
-    if parameters["loop_1"] > 2:
-        del parameters["loop_1"]       # Optional cleanup
-        return True                    # Exit loop
-    else:
-        return False                   # Continue looping
+    ctx.runtime.status_message = f"Next flow rate: {self.config.FlowrateArray[ctx.iteration]}"
+    return False  # Continue looping
 ```
 <div class="info-block"> <strong>
-💡 Information</strong><br> Because the loop decision is based on the function return (True/False), you can build very flexible loops (e.g., 
-looping until a sensor reaches a target, looping until a file exists, etc.), not only fixed iteration counts.
+💡 Information</strong><br> Because the loop decision is based on the function's return value (True/False), you
+can build very flexible loops (e.g., looping until a sensor reaches a target, looping until a file exists, etc.),
+not just fixed iteration counts.
 </div>
 
 ### 2) Conditional module
@@ -208,18 +123,13 @@ A **Conditional** module chooses between two branches based on the boolean value
 
 **How it works**
 
-If the script returns `True`, the workflow follows the **True branch**.
-
-If the script returns `False`, the workflow follows the **False branch**.
+* If the script returns `True`, the workflow follows the **True branch**.
+* If the script returns `False`, the workflow follows the **False branch**.
 
 Example: simple conditional
 
 ```python
 ...
-def script(
-    platform: "PersonalOrchestrator",
-    process_parameters: "ProcessParameters",
-    parameters: "MainParameters",
-) -> bool:
+def conditional_1(self, ctx: NodeExecutionContext) -> bool:
     return True  # Follow the True branch
 ```

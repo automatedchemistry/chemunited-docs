@@ -56,7 +56,7 @@ my_project/
 4. **Run Monitoring** hands that protocol to the work-server (`chemunited-workflow`), which compiles it into a
    graph (nodes are process steps, edges carry conditions/loopbacks) and executes it with a thread-pooled
    scheduler, emitting live events to the [Monitor window](../monitoring/run_monitoring.md) and the
-   [browser dashboard](../execution/dashboard.md).
+   browser dashboard's [Run Control](../dashboard/run_control.md) page.
 5. **Run Simulation** instead hands the same protocol to `chemunited-sim`, which runs it against a physics model
    instead of real devices — see [Setup Digital Twins](../simulation/digital_twins.md).
 

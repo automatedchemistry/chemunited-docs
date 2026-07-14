@@ -1,5 +1,5 @@
-from moviepy.editor import VideoFileClip
+from moviepy import VideoFileClip
 
 if __name__ == "__main__":
-    clip = VideoFileClip("_static/protocol04.mp4")
-    clip.write_gif("_static/protocol04.gif", fps=10)
+    clip = VideoFileClip("command_list.mp4")
+    clip.write_gif("_static/command_list.gif", fps=10)

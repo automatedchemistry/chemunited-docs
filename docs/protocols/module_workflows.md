@@ -30,7 +30,7 @@ Use it when a part of the protocol must run multiple times (for example: iterati
 A Conditional module creates a branching point in the workflow.
 Depending on the defined criteria, the process follows one branch or another.
 
-* <img src="../_static/icons/manual_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> Command
+* <img src="../_static/icons/Play_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> Command
 
 A Command module represents a single command sent to one associated device — no code required. Rather than
 clicking New Module, you drag it directly onto the canvas from the

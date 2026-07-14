@@ -23,6 +23,14 @@ standalone Command block.
 
 ## Building a Command block
 
+Command blocks are built from the **[Command List](build_protocols.md#command-list)**, the panel that lists every
+command exposed by the devices connected to the platform. Find the device/command pair you need — using the search
+bar if the list is long — and drag it from the list straight onto the workflow canvas:
+
+![Command List drag and drop](../_static/command_list.gif)
+
+This creates a new Command block already bound to that exact device and command; no manual wiring is required.
+
 To configure a Command block, **double-click it** on the canvas. This opens the command window:
 
 ![Alt text](../_static/command_block.png)

@@ -1,11 +1,11 @@
-# 🚀 Install ChemUnited-Drive
+# 🚀 Install ChemUnited
 
-ChemUnited-Drive is available on PyPI, so you can install it directly from the terminal.
+ChemUnited is available on PyPI as the `chemunited` package, and its source is hosted on GitHub.
 
 ## Install from PyPI (recommended)
 
 ```shell
-pip install Chemunited-drive
+pip install chemunited
 ```
 
 ## Install the latest development version (GitHub)
@@ -13,26 +13,22 @@ pip install Chemunited-drive
 If you want the most recent changes that may not yet be published on PyPI, install directly from GitHub:
 
 ```shell
-pip install git+https://https://github.com/automatedchemistry/chemunited-drive.git
+pip install git+https://github.com/automatedchemistry/chemunited-orchestrator.git
 ```
 <div class="info-block">
   <strong>💡 Tip</strong><br>
-  We recommend installing ChemUnited-Drive inside a virtual environment (venv/conda) to avoid
+  We recommend installing ChemUnited inside a virtual environment (venv/conda) to avoid
   conflicts with other Python packages.
 </div>
 
-## 🔄 Updating ChemUnited-Drive
+## 🔄 Updating ChemUnited
 
-ChemUnited-Drive is under active development (e.g., new components and features are added over time).
+ChemUnited is under active development (e.g., new components and features are added over time).
 To update your installation, run:
 
 ```shell
-pip install Chemunited-drive --upgrade
+pip install chemunited --upgrade
 ```
-
-
-
-
 
 
 

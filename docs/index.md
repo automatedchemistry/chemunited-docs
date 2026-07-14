@@ -61,10 +61,21 @@ protocols/pre_running.md
 
 ```{toctree}
 :maxdepth: 1
+:caption: Dashboard
+dashboard/launcher.md
+dashboard/overview.md
+dashboard/run_control.md
+dashboard/protocols.md
+dashboard/monitoring.md
+dashboard/logs.md
+dashboard/devices.md
+```
+
+```{toctree}
+:maxdepth: 1
 :caption: Execute and Monitoring
 monitoring/run_monitoring.md
 execution/overview.md
-execution/dashboard.md
 execution/api_and_mcp.md
 ```
 

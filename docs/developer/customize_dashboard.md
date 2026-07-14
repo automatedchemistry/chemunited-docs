@@ -1,41 +1,27 @@
 # Customize dashboard
 
-The [browser dashboard](../execution/dashboard.md) served by the work-server (`chemunited-workflow`) is built from
-Jinja2 templates and static assets that ship with the package. Each page — Dashboard, Run Control, Report,
-Protocols, Logs, Devices — can be overridden on a per-project basis without modifying the installed package.
+There is currently **no supported way to customize the browser [dashboard](../dashboard/overview.md)'s appearance
+on a per-project basis.**
 
-## 🎨 Override locations
-
-Inside a project directory, two folders are checked before falling back to the built-in defaults:
-
-```text
-my_project/
-├── ui/
-│   ├── templates/       # Jinja2 template overrides, one file per page
-│   └── static/
-│       └── custom.css   # extra/overriding CSS loaded on every page
-```
-
-To customize a page, copy the corresponding built-in template into `ui/templates/` under the same filename and
-edit it; the work-server will serve your version instead of the default the next time it starts. To just tweak
-appearance (colors, branding, layout tweaks) without touching markup, `ui/static/custom.css` is loaded after the
-built-in stylesheet, so its rules take precedence.
+The dashboard used to be built from Jinja2 templates and static assets, with a per-project `ui/templates/` and
+`ui/static/custom.css` override mechanism. That system was fully replaced by a compiled Vue single-page app
+(`chemunited_workflow/web/index.html` + a JS/CSS bundle) — every dashboard route now serves the same static bundle,
+routed client-side. The Jinja2/HTMX templates and the override mechanism built around them no longer exist in the
+codebase.
 
 <div class="info-block">
 <strong>💡 Note</strong><br>
-There is currently no CLI command to scaffold these files for you automatically — you create the
-<code>ui/templates/</code> and <code>ui/static/</code> folders yourself and copy in only the files you want to
-override. Everything else keeps using the built-in default.
+The work-server still exposes <code>GET /project-static/&#123;filename&#125;</code>, which serves raw files from
+<code>&lt;project&gt;/ui/static/&lt;filename&gt;</code>. This is a generic file passthrough only — the dashboard
+does not automatically load anything from it (no stylesheet, logo, or script is wired in), so it isn't a
+customization hook today. A project can only reach a file placed there by linking to its URL directly from
+somewhere else.
 </div>
 
-## What you can override
-
-Any of the pages described in [The Dashboard](../execution/dashboard.md) — Dashboard, Run Control, Report,
-Protocols, Logs, Devices — can be replaced individually. You do not need to override every page; unmodified pages
-continue to use the built-in template.
+If you need to change what the dashboard looks like or shows, the current options are to fork/patch the frontend
+source directly, or to build your own client against the same REST/MCP API instead of the bundled dashboard — see
+[API & MCP Tools](../execution/api_and_mcp.md).
 
 ## Next steps
 
-See [Working with Backend](backend.md) for the rest of the project file format, and
-[API & MCP Tools](../execution/api_and_mcp.md) if the dashboard's REST/MCP surface itself is what you want to
-extend rather than its appearance.
+See [Working with Backend](backend.md) for the rest of the project file format.

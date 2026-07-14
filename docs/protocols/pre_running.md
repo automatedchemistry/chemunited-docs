@@ -3,6 +3,9 @@
 The Pre-Running step is responsible for building, saving, and launching the protocols to be executed.
 A protocol is defined as a sequential list of processes that will be executed one after another.
 
+This page covers the **Pre-Execute internally** tab. The Pre-Running frame also has a second tab,
+[Dashboard Launcher](../dashboard/launcher.md), for starting and configuring the browser-based dashboard instead.
+
 Below is the window corresponding to the Pre-Running step.
 
 ![Alt text](../_static/pre_running01.png)
@@ -20,7 +23,7 @@ This list is essentially a mirror of the processes defined in the **Protocols fr
 
 2. **Processes Active**
 
-These processes are enabled and will be executed in **simulation** or **monitoring** mode.
+These processes are enabled and will be executed in **monitoring** mode.
 
 This separation allows the user to:
 
@@ -49,19 +52,23 @@ different execution scenarios according to their needs.
 
 ## 🛠 **Options in the processes lists**
 
-Each item in the list has a context menu 
-(accessed via <img src="../_static/icons/Application_black.svg" width="16" style="vertical-align:middle; margin-right:4px;">) 
-with the following options.
+Each item in the list has a context menu, accessed via the **···** button, with the following options.
 
    **For items in the Available list:**
 
-   - ➡️ **send**: Move the item to the Active list.  
+   - <img src="../_static/icons/Add_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Activate**: Add this process to the Active list.
 
    **For items in the Active list:**
 
-   - 📚 **duplicate**: Create a copy of the item. 
-   - <img src="../_static/icons/python.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **parameter**: Access the process parameter window.  
-   - <img src="../_static/icons/trash_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **remove**: Remove the item from the Active list.
+   - <img src="../_static/icons/variable_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Process Parameters**: Access the process parameter window (see [Parameters](parameters.md#how-parameters-appear-to-the-user)).
+   - <img src="../_static/icons/trash_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Remove from Active**: Remove this process from the Active list.
+
+<div class="info-block">
+  <strong>💡 Note</strong><br>
+  You can <strong>Activate</strong>
+  the same process from the Available list as many times as you want, and each entry added to the Active list
+  becomes its own independent instance (see below).
+</div>
 
 <div class="info-block">
   <strong>💡 Note</strong><br>
@@ -85,7 +92,7 @@ with the following options.
 
 ## ▶ Pre-Running Actions
 
-On the bottom-left side of the Pre-Running window, four main action buttons are available:
+On the bottom-left side of the Pre-Running window, three main action buttons are available:
 
 * <img src="../_static/icons/variable_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Main Parameters** 
 
@@ -95,10 +102,6 @@ Access and adjust the global parameters of the project for the current protocol.
 
 Launch the monitoring application to execute the protocol.
 This requires that all electronic components are already connected and online in the **Connectivity** window.
-
-* <img src="../_static/icons/chemunited_simu.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Run Simulation**
-
-Execute the protocol in simulation mode using a **digital twin** version of the platform.
 
 * <img src="../_static/icons/Save_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Save Protocol Script**  
 
@@ -127,10 +130,6 @@ Open a read-only window displaying a summary of all predefined parameters.
 * <img src="../_static/icons/chemunited.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Run Monitoring** 
 
 Execute the protocol directly in monitoring mode.
-
-* <img src="../_static/icons/chemunited_simu.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Run Simulation**
-
-Execute the protocol in simulation mode.
 
 * <img src="../_static/icons/trash_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Delete the protocol script**
 

@@ -121,11 +121,13 @@ block for that exact device/command pair, ready to connect into your workflow.
 
 Double-clicking the workflow canvas opens a context menu with the actions used to build the workflow:
 
-* **Add Script** — creates a new Script module/block.
-* **Add Loop** — creates a new Loop module/block.
-* **Add Conditional** — creates a new Conditional module/block.
-* **Access Process Parameters** — opens the parameter settings for the current process.
-* **Simulate Process** — runs this process in simulation mode.
+| Icon | Action | Description |
+|---|---|---|
+| <img src="../_static/icons/python.svg" width="16"> | **Add Script** | Creates a new Script module/block. |
+| <img src="../_static/icons/update_black.svg" width="16"> | **Add Loop** | Creates a new Loop module/block. |
+| <img src="../_static/icons/block_if_black.svg" width="16"> | **Add Conditional** | Creates a new Conditional module/block. |
+| <img src="../_static/icons/variable_black.svg" width="16"> | **Access Process Parameters** | Opens the parameter settings for the current process. |
+| <img src="../_static/icons/simulation.svg" width="16"> | **Simulate Process** | Runs this process in simulation mode. |
 
 At the bottom of the frame, two standalone buttons are always available:
 

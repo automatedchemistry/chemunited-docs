@@ -1,31 +1,37 @@
 # Parameters
 
-The Parameters window is a helper tool for creating variables (parameters) and making them available inside your scripts.
+The Parameters Editor is a helper tool for creating variables (parameters) and making them available inside your
+scripts. It opens on a specific process's `ProcessConfig` (for process parameters) or on the project's
+`MainParameter` class (for main parameters, see [Script Editor](script_editor.md#inserting-a-parameter)).
 
 ![Alt text](../_static/parameters_editor.png)
 
+The **Lock parameters** checkbox at the top controls whether the values can still be changed once the protocol is
+running — it maps directly to `model_config = ConfigDict(frozen=True)` (locked) or `frozen=False` (editable at
+runtime) on the generated class.
 
-On the right side, you will find a list of parameters type that can be inserted into the script.
+Below it, every existing parameter is listed as a collapsible row showing its type badge (e.g. `QTY`, `FLOAT`,
+`INT`, `STR`, `BOOL`) and name, with actions to duplicate, delete, or expand it. On the right side, a panel lists
+every parameter type that can be added, split into **Numeric** (integer, float, physical quantity) and **Text**
+(string, array, choice, bool) — clicking one adds a new parameter of that type to the list.
 
 ## Creating a new parameter
 
-When you add a new variable, a configuration window opens. In this window you can define the main characteristics of the parameter:
+Expanding a parameter row reveals its configuration fields:
 
-* General
+* **Variable Name** — the Python identifier used to reference the parameter in scripts (e.g. `self.config.pump_vol`).
+* **Variable Title** — the human-readable label shown to the user.
+* **Variable Description** — optional help text shown alongside the field.
+* **Unit** — only for physical-quantity parameters; the unit its value is expressed in (e.g. `°C`, `ml`).
+* **Default Value** — the value used until the user overrides it.
+* **Group** (under *Visibility & Behavior*) — which section the parameter is organized under in the generated
+  form (for easier navigation among many parameters).
+* **visible** / **editable** toggles (under *Visibility & Behavior*) — whether the parameter is shown to the user
+  at all, and whether they're allowed to change it.
 
-    *Defines what the variable is and how it should be presented to the user.*
-
-* Organization
-
-    *Controls where the variable appears in the GUI (for easier navigation).*
-
-* Behavior
-
-    *Controls whether the user can see and edit the variable in the GUI.*
-
-* Validation
-
-    *Adds value constraints to prevent invalid inputs.*
+Numeric and text types also expose validation constraints for their type (e.g. `ge`/`le` bounds for integers and
+floats, allowed length or pattern for strings, item count for arrays) — these prevent invalid inputs from being
+entered downstream.
 
 ## Supported parameter types
 
@@ -41,20 +47,20 @@ repetitions: int = Field(
         description="Number of experiment repeats.",
         ge=1,
         le=20,
-        json_schema_extra={"group": "Process"},
+        json_schema_extra={"group": "Process", "editable": True, "visible": True},
     )
 ```
 
-2. Float 
+2. Float
 
 ```python
-precision: int = Field(
+precision: float = Field(
         default=0.8,
         title="Precision",
         description="Experiment precision.",
         ge=0,
         le=1,
-        json_schema_extra={"group": "Process"},
+        json_schema_extra={"group": "Process", "editable": True, "visible": True},
     )
 ```
 
@@ -65,7 +71,9 @@ project_name: str = Field(
         default="Simulation",
         title="Project Name",
         description="A short identifier for this setup.",
-        json_schema_extra={"group": "General"},
+        min_length=1,
+        max_length=50,
+        json_schema_extra={"group": "General", "editable": True, "visible": True},
     )
 ```
 
@@ -76,7 +84,9 @@ secondary_solvents: list[str] = Field(
         default=["Toluene", "DMF"],
         title="Secondary solvents",
         description="Optional co-solvents used during the reaction.",
-        json_schema_extra={"group": "Solvents"},
+        min_items=0,
+        max_items=10,
+        json_schema_extra={"group": "Solvents", "editable": True, "visible": True},
     )
 ```
 
@@ -89,6 +99,8 @@ solvent: str = Field(
         description="Select the solvent used in the process.",
         json_schema_extra={
             "group": "Solvents",
+            "editable": True,
+            "visible": True,
             "Options": ["DCM", "Toluene", "Acetone", "DMF"],
         },
     )
@@ -106,6 +118,9 @@ capacity: Annotated[
         description="Volumetric capacity of the component",
         json_schema_extra={
             "group": "Configuration",
+            "editable": True,
+            "visible": True,
+            "unit": "ml",
         },
     )
 ```
@@ -117,15 +132,23 @@ active: bool = Field(
         default=True,
         title="Active experiment",
         description="Whether this configuration is currently active.",
-        json_schema_extra={"group": "Configuration"},
+        json_schema_extra={"group": "Configuration", "editable": True, "visible": True},
     )
 ```
 
 ## How parameters appear to the user
 
-After defining these parameters, the platform automatically generates the parameters list 
-where the user can inspect if it is corrected build.
+Once defined, each parameter is turned into an input field in the forms the rest of the platform generates for it —
+grouped by the **Group** set above and labelled with its **Variable Title**.
+
+**[Access Process Parameters](build_protocols.md#workflow-canvas-menu)** opens this generated form for the current
+process's parameters, so their default values can be reviewed and edited without leaving the workflow canvas:
 
 ![Alt text](../_static/parameters_window_view.png)
 
+Before actually running a process, [Pre-Running](pre_running.md#-options-in-the-processes-lists) shows the same
+generated form again — this time for a specific queued instance (e.g. `clean_0`), with **Process Parameters** and
+**Experiment Parameters** (the project's main parameters) both listed side by side so their final run values can be
+set:
 
+![Alt text](../_static/parameters_window_view_dashboard.png)

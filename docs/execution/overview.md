@@ -42,5 +42,5 @@ trusted lab networks.
 
 ## Next steps
 
-Once the work-server is running, see [The Dashboard](dashboard.md) for a tour of its browser pages, or
+Once the work-server is running, see [The Dashboard](../dashboard/overview.md) for a tour of its browser pages, or
 [API & MCP Tools](api_and_mcp.md) if you want to script or automate against it directly.

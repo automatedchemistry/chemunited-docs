@@ -22,34 +22,31 @@ Opens the component library, from which you can add new electronic elements or u
 
 Right-clicking gives you quick access to context-specific actions, depending on what you click on.
 
-<p align="center">
-  <img src="../_static/context_menu_connection.png" alt="Image 1" width="30%">
-  <img src="../_static/context_menu_component.png" alt="Image 2" width="30%">
-  <img src="../_static/context_menu_canvas.png" alt="Image 2" width="30%">
-</p>
-<p align="center"><em>Right-click menu on a connection, a component, and the empty canvas.</em></p>
-
 ### On a connection
 
-* **Switch to Curved** — toggles the connection's routing between straight segments and a curved line.
-* **Add Inflection Point** — inserts a new draggable waypoint, useful for routing the connection around other
-  components.
-* **Remove Inflection Point** — removes the closest inflection point; disabled when the connection has none.
-* **Switch to Air Pressure** — changes the connection's role to represent a pneumatic/air-pressure line instead of
-  a standard fluid line.
-* **Properties** — opens the connection's property editor.
-* **Delete** — removes the connection.
+| Icon | Action | Description |
+|---|---|---|
+| <img src="../_static/icons/connection_black.svg" width="16"> | **Switch to Curved** | Toggles the connection's routing between straight segments and a curved line. |
+| <img src="../_static/icons/Move_black.svg" width="16"> | **Add Inflection Point** | Inserts a new draggable waypoint, useful for routing the connection around other components. |
+| <img src="../_static/icons/scissor_black.svg" width="16"> | **Remove Inflection Point** | Removes the closest inflection point; disabled when the connection has none. |
+| <img src="../_static/icons/line_pressure_black.svg" width="16"> | **Switch to Air Pressure** | Changes the connection's role to represent a pneumatic/air-pressure line instead of a standard fluid line. |
+| <img src="../_static/icons/Edit_black.svg" width="16"> | **Properties** | Opens the connection's property editor. |
+| <img src="../_static/icons/trash_black.svg" width="16"> | **Delete** | Removes the connection. |
 
 ### On a component
 
-* **Properties** — opens the component's property editor.
-* **Delete** — removes the component from the platform.
+| Icon | Action | Description |
+|---|---|---|
+| <img src="../_static/icons/Edit_black.svg" width="16"> | **Properties** | Opens the component's property editor. |
+| <img src="../_static/icons/trash_black.svg" width="16"> | **Delete** | Removes the component from the platform. |
 
 ### On the empty canvas
 
-* **Show Grid** — toggles a background grid on the canvas, useful for aligning components.
-* **Dark Background** — toggles the canvas background between light and dark.
-* **Components in Front** — brings every component to the front of the drawing.
+| Icon | Action | Description |
+|---|---|---|
+| <img src="../_static/icons/View_black.svg" width="16"> | **Show Grid** | Toggles a background grid on the canvas, useful for aligning components. |
+| <img src="../_static/icons/Brush_black.svg" width="16"> | **Dark Background** | Toggles the canvas background between light and dark. |
+| <img src="../_static/icons/View_black.svg" width="16"> | **Components in Front** | Brings every component to the front of the drawing. |
 
 ## Component available
 
