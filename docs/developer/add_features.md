@@ -1,15 +1,8 @@
 # Customize protocols
 
 [Add new components](add_components.md) covers adding new *hardware* to the component library. This page covers
-adding new *behavior* — logic layered on top of an existing platform, such as how data gets saved, how a reaction
-is modeled in simulation, or how the protocol logic itself is structured.
-
-## 📝 Custom Data-Save Scripts
-
-The **Custom Data-Save Script** button, already introduced in [Run and Monitoring](../monitoring/run_monitoring.md),
-opens an editor for a Python class that defines how experimental data is stored during a run — file format,
-naming convention, and metadata. The application provides a base template class; you override its methods to
-customize what gets written and where, without needing to modify anything else about the protocol.
+adding new *behavior* — logic layered on top of an existing platform, such as how a reaction is modeled in
+simulation, or how the protocol logic itself is structured.
 
 ## <img src="../_static/icons/module.svg" width="16" style="vertical-align:middle; margin-right:4px;"> Custom Reaction Models
 

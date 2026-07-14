@@ -42,7 +42,7 @@ only enable it on trusted machines.
 
 There is a separate execution server (`chemunited-workflow`) with its own REST API, MCP tools, and browser
 dashboard — used when actually running a protocol against hardware. See
-[Execution & Dashboard](../execution/overview.md) rather than duplicating that material here.
+[The Dashboard](../dashboard/overview.md) rather than duplicating that material here.
 
 ## 🧪 Simulation Backend
 

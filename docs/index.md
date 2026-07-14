@@ -61,6 +61,12 @@ protocols/pre_running.md
 
 ```{toctree}
 :maxdepth: 1
+:caption: Execute and Monitoring
+monitoring/run_monitoring.md
+```
+
+```{toctree}
+:maxdepth: 1
 :caption: Dashboard
 dashboard/launcher.md
 dashboard/overview.md
@@ -69,14 +75,7 @@ dashboard/protocols.md
 dashboard/monitoring.md
 dashboard/logs.md
 dashboard/devices.md
-```
-
-```{toctree}
-:maxdepth: 1
-:caption: Execute and Monitoring
-monitoring/run_monitoring.md
-execution/overview.md
-execution/api_and_mcp.md
+dashboard/api_and_mcp.md
 ```
 
 ```{toctree}
@@ -91,6 +90,7 @@ reference/components.md
 :caption: Tutorial
 tutorials/drawing_tutorial.md
 tutorials/protocols_tutorial.md
+tutorials/monitoring_tutorial.md
 tutorials/connectivity_tutorial.md
 ```
 

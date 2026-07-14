@@ -1,46 +1,44 @@
 # Run and Monitoring
 
-The Monitoring window is intentionally simpler than the Setup window.
-Its purpose is to **run a protocol that has already been created**, following the order of the processes listed 
-under **Active Processes**.
+The Execution window is intentionally simpler than the Setup window. Its purpose is to **run a protocol that has
+already been created**, following the order of the processes listed under **Active Processes**
+(configured in [Pre-Running](../protocols/pre_running.md)).
 
 ![Alt text](../_static/monitoring01.png)
 
-The buttons shown in the figure above is described as:
+The sidebar on the right side of the window has the following items:
 
-* <img src="../_static/icons/variable_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Show Parameters Summary** 
+| Item | Description |
+|---|---|
+| **Online / Offline** | Connects to (or disconnects from) the execution API. Must be **Online** before a protocol can run. |
+| <img src="../_static/icons/home.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Home** | Recenters both the platform diagram and the workflow graph shown in the main canvas. |
+| **Protocols** | The page shown by default — lists **Active Processes** and holds the **Execute** / **Stop Protocol** buttons described below. |
+| <img src="../_static/icons/variable_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Summary** | Opens a read-only window with **Parameters** and **Report** tabs — all predefined parameters (main and process) with their current values, and a report of the run. |
 
-Opens a read-only view with all predefined parameters (main and process parameters), including their current values.
+At the bottom of that sidebar:
 
-* <img src="../_static/icons/database_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Custom Data-Save Script** 
+| Action | Description |
+|---|---|
+| **Settings** | Opens the **Run Configuration** dialog — the protocol to run (read-only here) plus **command timeout**, **dry run**, and **error-resilient mode**. These are the same options exposed by the browser dashboard's [Run Control](../dashboard/run_control.md) page. |
+| **API link** | Opens the execution API's URL in your browser. |
 
-Opens the editor for a custom data-saving script.
-Use this to define how experimental data should be stored (e.g., file format, naming, metadata), 
-based on a predefined class/template provided by the application.
+On the **Protocols** page itself:
 
-* <img src="../_static/icons/play_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Start protocol** 
+* <img src="../_static/icons/play_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Execute** — starts the protocol, running every process listed in **Active Processes** in order. Disabled while a protocol is already running.
+* <img src="../_static/icons/stop_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Stop Protocol** — stops the currently running protocol execution.
 
-Starts the execution of the full protocol, running all processes in the order shown in **Active Processes**.
-
-* <img src="../_static/icons/stop_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Stop protocol**
-
-Stops the currently running protocol execution.
-
-## Running individual processes
-
-In addition to starting the full protocol, each process listed under **Active Processes** includes its own option/menu
-to run that process individually.
-This is useful for testing a single process step without executing the full sequence.
-
-## 🧑‍🏫 Tutorial Example
-
-For this tutorial, you only need to click **Start Protocol**. The application will execute the processes listed in 
-**Active Processes** in order.
-
-<img src="../_static/monitoring02.gif" width="900px">
+<div class="info-block">
+<strong>💡 Information</strong><br>
+If you click <strong>Execute</strong> while a run is already active elsewhere, the window asks whether to stop the
+conflicting run first — <strong>Active Processes</strong> itself does not offer a way to run a single process on
+its own.
+</div>
 
 ## Next steps
 
-The Monitor window above is the desktop-side view of a run. Once a protocol starts, execution is actually handed off
-to a separate execution engine (the "work-server") that also exposes a browser dashboard and a remote/automation API
-— see [Execution & Dashboard](../execution/overview.md) to control or inspect a run from a browser or another machine.
+The Execution window above is the desktop-side view of a run. Once a protocol starts, execution is actually
+handed off to a separate execution engine (the "work-server") that also exposes a browser dashboard and a
+remote/automation API — see [The Dashboard](../dashboard/overview.md) to control or inspect a run from a browser
+or another machine.
+
+Ready to try it? See [Run a Protocol](../tutorials/monitoring_tutorial.md) for a step-by-step walkthrough.

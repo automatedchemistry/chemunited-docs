@@ -67,9 +67,9 @@ it as SVG and save as: <code>docs/_static/simulation_modes.svg</code>, then repl
 
 | | Mode 1 — Workflow Simulation | Mode 2 — Real-Time Shadow |
 |---|---|---|
-| What it does | Dry-tests a protocol against physics, no hardware involved | Mirrors a live hardware run happening in the [work-server](../execution/overview.md), as a "ghost" alongside the real experiment |
+| What it does | Dry-tests a protocol against physics, no hardware involved | Mirrors a live hardware run happening in the [work-server](../dashboard/overview.md), as a "ghost" alongside the real experiment |
 | Speed | Runs as fast as the computer can solve it | Runs at wall-clock pace, matched to the real run |
-| How to launch | The **Run Simulation** button described above | Reached through the work-server/simulation API rather than a dedicated orchestrator button today — see [API & MCP Tools](../execution/api_and_mcp.md) |
+| How to launch | The **Run Simulation** button described above | Reached through the work-server/simulation API rather than a dedicated orchestrator button today — see [API & MCP Tools](../dashboard/api_and_mcp.md) |
 
 ## 📈 Recorded Visualizations
 
@@ -98,5 +98,5 @@ Save as: <code>docs/_static/sim_network01.png</code>, then replace this block wi
 ## Next steps
 
 Once your protocol behaves as expected in simulation, connect real devices in
-[Connect Devices](../connectivity/connectivity.md), or see [Execution & Dashboard](../execution/overview.md) to
+[Connect Devices](../connectivity/connectivity.md), or see [The Dashboard](../dashboard/overview.md) to
 shadow a live run with Mode 2.

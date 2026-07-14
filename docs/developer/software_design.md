@@ -20,7 +20,7 @@ save as: <code>docs/_static/suite_architecture.svg</code>, then replace this blo
   simulation engine compile against.
 * **chemunited-workflow** (the "work-server") — compiles a process into an executable graph and runs it against
   real hardware over HTTP, exposing a browser dashboard and REST/MCP API. See
-  [Execution & Dashboard](../execution/overview.md).
+  [The Dashboard](../dashboard/overview.md).
 * **chemunited-sim** — the physics engine behind digital twins. Can either dry-run a protocol standalone, or
   mirror ("shadow") a live hardware run happening in chemunited-workflow. See
   [Setup Digital Twins](../simulation/digital_twins.md).

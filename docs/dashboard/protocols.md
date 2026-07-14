@@ -28,5 +28,5 @@ immutable, so saving again creates a new file rather than overwriting the one yo
 <div class="info-block">
 <strong>💡 Information</strong><br>
 Deleting a saved protocol file is only available in builder mode from the API/MCP surface — see
-<a href="../execution/api_and_mcp.md">API & MCP Tools</a>.
+<a href="api_and_mcp.md">API & MCP Tools</a>.
 </div>

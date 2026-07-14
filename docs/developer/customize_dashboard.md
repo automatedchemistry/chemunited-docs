@@ -20,7 +20,7 @@ somewhere else.
 
 If you need to change what the dashboard looks like or shows, the current options are to fork/patch the frontend
 source directly, or to build your own client against the same REST/MCP API instead of the bundled dashboard — see
-[API & MCP Tools](../execution/api_and_mcp.md).
+[API & MCP Tools](../dashboard/api_and_mcp.md).
 
 ## Next steps
 

@@ -144,7 +144,7 @@ grouped by the **Group** set above and labelled with its **Variable Title**.
 **[Access Process Parameters](build_protocols.md#workflow-canvas-menu)** opens this generated form for the current
 process's parameters, so their default values can be reviewed and edited without leaving the workflow canvas:
 
-![Alt text](../_static/parameters_window_view.png)
+<img src="../_static/parameters_window_view.png" width="400">
 
 Before actually running a process, [Pre-Running](pre_running.md#-options-in-the-processes-lists) shows the same
 generated form again — this time for a specific queued instance (e.g. `clean_0`), with **Process Parameters** and
