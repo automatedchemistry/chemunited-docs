@@ -6,97 +6,60 @@ reagents.
 
 ## 🚀 Launching a Simulation
 
-From [Pre-Running](../protocols/pre_running.md), click
-<img src="../_static/icons/chemunited_simu.svg" width="16" style="vertical-align:middle; margin-right:4px;">
-**Run Simulation** — either from the main action bar, or from a saved Protocol Files card. This starts a local
-simulation engine in the background automatically; you do not need to install or run anything separately.
+From [Protocols](../protocols/build_protocols.md), open the process you want to test, right-click an empty area of its workflow canvas, and choose <img src="../_static/icons/simulation.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Simulate Process** from the context menu (see [Workflow canvas menu](../protocols/build_protocols.md#workflow-canvas-menu)). This starts a local simulation engine in the background automatically — you do not need to install or run anything separately — and opens the Simulation Report Window for that process.
 
 ## 📊 The Simulation Report Window
 
-Running a simulation opens a live report window: a graphical view of the platform alongside tabs that update in
-near real time as the run progresses (the same tabs the recorded HTML dashboard produces afterward — see
-"Recorded Visualizations" further down this page).
+Running a simulation opens a live report window with its own copy of the platform — running or scrubbing a
+simulation never touches your saved design, so it's safe to explore freely.
+
+<img src="../_static/simulation_dashboard.gif" width="700px">
+
+The top half is a graph view of the platform. Components flash briefly as commands are issued to them while the run progresses, and clicking a component or connection loads its data into the **Profiles** panel below, which has five tabs — **Temperature**, **Pressure**, **Flow**, **Content**, and **Length Profile** — plotting the selected item's values over the run.
+
+Once a run has at least two recorded instants, a scrub slider appears above the tabs. Dragging it moves through
+the recorded timeline, repainting the platform view (fill levels, valve positions, edge content) and the profile
+plots' cursor to match.
 
 <div class="info-block">
-<strong>📸 Screenshot needed</strong><br>
-Capture: the Simulation Report window mid-run, with the platform view and tabs visible.<br>
-Save as: <code>docs/_static/simulation01.png</code>, then replace this block with:<br>
-<code>![Alt text](../_static/simulation01.png)</code>
+<strong>💡 Not the same as the recorded dashboard</strong><br>
+This live window and the standalone HTML dashboard described under "Recorded Visualizations" below both read
+the same recorded run, but they're two different views over it — the live window's five tabs are not the
+recorded dashboard's Components/Edges/Overview/Signals/Pipe Cells tabs.
 </div>
 
 ## 🧫 Compounds & Initial Inventory
 
-Before simulating, define what's actually inside each vessel using the **Compounds** tab in the Setup window.
-This is where you set the initial chemical content (species, concentration, volume) of flasks, bottles, and
-reactors on your platform — the simulation reads this as the starting state for every run.
+Before simulating, define the chemical species your platform uses on the **Compounds** page (left navigation,
+next to Segment). Every species referenced anywhere on the platform — reagents, products, carrier fluids — must
+be defined here first.
 
-<div class="info-block">
-<strong>📸 Screenshot needed</strong><br>
-Capture: the Compounds tab, including the "Edit inventories" dialog for a vessel.<br>
-Save as: <code>docs/_static/compounds01.png</code>, then replace this block with:<br>
-<code>![Alt text](../_static/compounds01.png)</code>
-</div>
+![Available compounds list, with Add compound, Remove selected, and Edit inventories buttons](../_static/compound_list.png)
 
-Optionally, physical properties (density, viscosity, etc.) can be looked up automatically for known compounds
-rather than entered by hand.
+**Add compound** opens a dialog to name a new species and set its physical properties (molecular weight, heat capacities, liquid density, canvas color) by hand, or fetch them automatically with **Fill from CoolProp** instead of entering them manually:
+
+![Add compound dialog, with a Fill from CoolProp button and fields for name and molecular weight](../_static/compound_add.png)
+
+Once a species is defined, use **Edit inventories** to set what's actually inside a given vessel — its initial chemical content (species, concentration, volume) in flasks, bottles, and reactors on your platform. The simulation reads this as the starting state for every run.
+
+## ⚗️ Reactions
+
+If a vessel's chemical content should change over the course of a run a reagent decaying, a product forming model that on the **Reactions** page (left navigation, next to Compounds). Only components with an internal inventory (vessels, flow reactors) can be a reaction target.
+
+![Configured reactions list and the Add reaction dialog, with target component, reactant, product, rate constant, phase, and temperature change fields](../_static/reactions.png)
+
+Each reaction converts a **reactant** into a **product**, at a given **rate constant**, within a specific **phase** (liquid or gas) of the target component's inventory — optionally releasing or absorbing heat via a **temperature change** per mole converted. The simulation applies these continuously as the run progresses; without a reaction defined, a vessel's contents stay chemically inert (only moved, mixed, or diluted, never converted).
 
 ## 🧠 What Happens Under the Hood
 
-The same `Process`/`Platform` code that runs against real hardware runs **unmodified** against the simulator — the
-simulation engine swaps in a stand-in client in place of each real HTTP device client, so no protocol code needs
-to know whether it's talking to a pump or a physics model.
+The same `Process`/`Platform` code that runs against real hardware runs **unmodified** against the simulator, the simulation engine swaps in a stand-in client in place of each real HTTP device client, so no protocol code needs to know whether it's talking to a pump or a physics model.
 
 <div class="info-block">
-<strong>💡 Terms at a glance</strong><br>
-<strong>HydraulicGraph</strong> — the compiled network of nodes and edges built from your platform drawing, used to
-solve pressures and flows.<br>
-<strong>Pocket</strong> — a discrete slug of fluid (a phase, volume, species, temperature) moving through the
-tubing.<br>
-<strong>Resistance override</strong> — how active components like pumps, valves, and back-pressure regulators
-actively drive the hydraulics, instead of passively obeying tubing geometry alone.
-</div>
+<strong>💡 Terms at a glance</strong><br> <strong>HydraulicGraph</strong> — the compiled network of nodes and edges built from your platform drawing, used to solve pressures and flows.<br> 
 
-## 🔀 Mode 1 vs Mode 2
-
-<div class="info-block">
-<strong>📸 Diagram needed</strong><br>
-A Mode 1 vs Mode 2 data-flow diagram was generated as an interactive draw.io diagram during this session. Export
-it as SVG and save as: <code>docs/_static/simulation_modes.svg</code>, then replace this block with:<br>
-<code>![Alt text](../_static/simulation_modes.svg)</code>
-</div>
-
-| | Mode 1 — Workflow Simulation | Mode 2 — Real-Time Shadow |
-|---|---|---|
-| What it does | Dry-tests a protocol against physics, no hardware involved | Mirrors a live hardware run happening in the [work-server](../dashboard/overview.md), as a "ghost" alongside the real experiment |
-| Speed | Runs as fast as the computer can solve it | Runs at wall-clock pace, matched to the real run |
-| How to launch | The **Run Simulation** button described above | Reached through the work-server/simulation API rather than a dedicated orchestrator button today — see [API & MCP Tools](../dashboard/api_and_mcp.md) |
-
-## 📈 Recorded Visualizations
-
-Every simulation run is recorded and can be explored afterward as two standalone HTML files (openable in any
-browser, independent of the orchestrator):
-
-* **Dashboard** — tabs for Components, Edges, Overview, Signals, and Pipe Cells, with pressure/temperature/species
-  charts per component and edge.
-* **Network graph** — an interactive node/edge diagram of the platform, where node shape indicates hub/inventory/
-  boundary type, node color encodes pressure and temperature, and edge width/style encodes flow.
-
-<div class="info-block">
-<strong>📸 Screenshot needed</strong><br>
-Capture: the recorded Plotly HTML dashboard (Components/Edges/Overview/Signals/Pipe Cells tabs).<br>
-Save as: <code>docs/_static/sim_dashboard01.png</code>, then replace this block with:<br>
-<code>![Alt text](../_static/sim_dashboard01.png)</code>
-</div>
-
-<div class="info-block">
-<strong>📸 Screenshot needed</strong><br>
-Capture: the recorded network graph visualization.<br>
-Save as: <code>docs/_static/sim_network01.png</code>, then replace this block with:<br>
-<code>![Alt text](../_static/sim_network01.png)</code>
+<strong>Pocket</strong> — a discrete slug of fluid (a phase, volume, species, temperature) moving through the tubing.<br> <strong>Resistance override</strong> — how active components like pumps, valves, and back-pressure regulators actively drive the hydraulics, instead of passively obeying tubing geometry alone.
 </div>
 
 ## Next steps
 
-Once your protocol behaves as expected in simulation, connect real devices in
-[Connect Devices](../connectivity/connectivity.md), or see [The Dashboard](../dashboard/overview.md) to
-shadow a live run with Mode 2.
+Once your protocol behaves as expected in simulation, connect real devices in [Connect Devices](../connectivity/connectivity.md), or see [The Dashboard](../dashboard/overview.md) to shadow a live run with Mode 2.
