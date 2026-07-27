@@ -1,4 +1,4 @@
-# 📡 Dashboard Launcher
+# Dashboard Launcher
 
 The **Dashboard Launcher** is the second tab of the [Pre-Running](../protocols/pre_running.md) frame (next to
 **Pre-Execute internally**). It starts and manages the browser-based [Dashboard](overview.md)

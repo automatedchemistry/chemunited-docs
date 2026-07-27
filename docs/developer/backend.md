@@ -4,14 +4,14 @@ Everything the GUI does is backed by plain files and local HTTP servers. Advance
 directly — including through MCP, so an LLM agent can inspect or drive a project while the desktop app has it
 open.
 
-## 📁 Project File Format
+## Project File Format
 
 The full annotated layout is shown in [Software design](software_design.md) under "The Project Directory". In short: a
 project is a plain directory (`manifest.json`, `draw/setup.py`, `connectivity/associations.json`,
 `protocols/main_parameters.py`, one `protocols/<name>.py` per process), and a `.chemunited` file is just that
 directory zipped for sharing.
 
-## 🔌 Orchestrator MCP Server
+## Orchestrator MCP Server
 
 From the Project menu, **Enable MCP** starts a local MCP server exposing the currently open project's files to
 any connected MCP client (such as an AI coding assistant).
@@ -38,13 +38,13 @@ MCP is optional and off by default. Enabling it exposes local file/project contr
 only enable it on trusted machines.
 </div>
 
-## 🌐 Work-Server Backend
+## Work-Server Backend
 
 There is a separate execution server (`chemunited-workflow`) with its own REST API, MCP tools, and browser
 dashboard — used when actually running a protocol against hardware. See
 [The Dashboard](../dashboard/overview.md) rather than duplicating that material here.
 
-## 🧪 Simulation Backend
+## Simulation Backend
 
 `chemunited-sim` also runs its own small local FastAPI server, used internally by the **Run Simulation** button —
 see [Setup Digital Twins](../simulation/digital_twins.md) for what it does; you do not need to start it manually

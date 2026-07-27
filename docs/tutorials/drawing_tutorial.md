@@ -1,4 +1,4 @@
-# 🧑‍🏫 Tutorial Example
+# Tutorial Example
 
 This tutorial guides you through building a very simple setup, step by step, so you can learn how ChemUnited
 works in practice. The goal is to build the simple setup shown below:

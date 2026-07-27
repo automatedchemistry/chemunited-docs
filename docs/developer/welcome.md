@@ -1,4 +1,4 @@
-# 💻 Developer Welcome
+# Developer Welcome
 
 The rest of the documentation covers using ChemUnited entirely through the GUI. This section is for users who
 want to go further: writing a new hardware component, customizing orchestrator behavior, scripting a project
@@ -10,7 +10,7 @@ This section assumes basic Python familiarity. If you only use the desktop app, 
 page.
 </div>
 
-## 🧩 The Three Layers of ChemUnited
+## The Three Layers of ChemUnited
 
 ChemUnited is split across a few independent packages rather than one monolith. In everyday use you mostly only
 see the first one, but it helps to know all three exist:
@@ -27,7 +27,7 @@ see the first one, but it helps to know all three exist:
 The full picture — how these fit together, plus the project file format they all share — is in
 [Software design](software_design.md).
 
-## 🗺️ Where to go next
+## Where to go next
 
 * Want to understand the architecture? → [Software design](software_design.md)
 * Want to add a new pump/valve/sensor to the component library? → [Add new components](add_components.md)

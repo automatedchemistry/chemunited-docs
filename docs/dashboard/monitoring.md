@@ -1,4 +1,4 @@
-# 📈 Monitoring
+# Monitoring
 
 <div class="warning-block">
 <strong>⚠️ Not the same as the Monitor window</strong><br>

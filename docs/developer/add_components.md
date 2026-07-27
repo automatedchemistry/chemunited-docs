@@ -4,7 +4,7 @@ Components are the drawable building blocks (pumps, valves, sensors, vessels...)
 [Draw](../drawing/drawing.md) canvas — see [Components available](../reference/components.md) for the full
 current library. This page is for adding a new one that isn't in that list.
 
-## 🧩 Anatomy of a Component
+## Anatomy of a Component
 
 Most components live in `chemunited-core`, not in the orchestrator itself. A component definition has three parts:
 
@@ -18,7 +18,7 @@ For most new components — anything that behaves like a simple pass-through dev
 **all** you need to write. The orchestrator auto-generates the canvas figure, tree entry, and property editor from
 it; no changes to the orchestrator itself are required.
 
-## 🛠️ Steps to Add a Component
+## Steps to Add a Component
 
 1. Define the component's data/mode classes in `chemunited-core` (or reuse an existing base if your component is
    a variant of one, e.g. another valve port/position combination).
@@ -36,7 +36,7 @@ New components without simulation support still work perfectly for real-hardware
 Simulation</strong> coverage is affected.
 </div>
 
-## 🎨 Icons
+## Icons
 
 Two icons are involved: the full canvas figure (the shape drawn on the platform) and the small icon shown in the
 Add tree panel — the same icon set documented in

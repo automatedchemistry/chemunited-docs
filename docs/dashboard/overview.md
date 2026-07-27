@@ -1,4 +1,4 @@
-# 📊 Dashboard
+# Dashboard
 
 The **Dashboard** is the browser-based web app served by the work-server (`chemunited-workflow`) alongside its
 REST/MCP API. It's how you interact with a project — start runs, build protocols, watch live data, and check

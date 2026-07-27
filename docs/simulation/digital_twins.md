@@ -4,11 +4,11 @@ A **digital twin** is a physics-based virtual copy of your platform. A protocol 
 real hardware — useful for dry-testing logic, timing, and expected inventory changes before touching real
 reagents.
 
-## 🚀 Launching a Simulation
+## Launching a Simulation
 
 From [Protocols](../protocols/build_protocols.md), open the process you want to test, right-click an empty area of its workflow canvas, and choose <img src="../_static/icons/simulation.svg" width="16" style="vertical-align:middle; margin-right:4px;"> **Simulate Process** from the context menu (see [Workflow canvas menu](../protocols/build_protocols.md#workflow-canvas-menu)). This starts a local simulation engine in the background automatically — you do not need to install or run anything separately — and opens the Simulation Report Window for that process.
 
-## 📊 The Simulation Report Window
+## The Simulation Report Window
 
 Running a simulation opens a live report window with its own copy of the platform — running or scrubbing a
 simulation never touches your saved design, so it's safe to explore freely.
@@ -28,7 +28,7 @@ the same recorded run, but they're two different views over it — the live wind
 recorded dashboard's Components/Edges/Overview/Signals/Pipe Cells tabs.
 </div>
 
-## 🧫 Compounds & Initial Inventory
+## Compounds & Initial Inventory
 
 Before simulating, define the chemical species your platform uses on the **Compounds** page (left navigation,
 next to Segment). Every species referenced anywhere on the platform — reagents, products, carrier fluids — must
@@ -42,7 +42,7 @@ be defined here first.
 
 Once a species is defined, use **Edit inventories** to set what's actually inside a given vessel — its initial chemical content (species, concentration, volume) in flasks, bottles, and reactors on your platform. The simulation reads this as the starting state for every run.
 
-## ⚗️ Reactions
+## Reactions
 
 If a vessel's chemical content should change over the course of a run a reagent decaying, a product forming model that on the **Reactions** page (left navigation, next to Compounds). Only components with an internal inventory (vessels, flow reactors) can be a reaction target.
 
@@ -50,7 +50,7 @@ If a vessel's chemical content should change over the course of a run a reagent 
 
 Each reaction converts a **reactant** into a **product**, at a given **rate constant**, within a specific **phase** (liquid or gas) of the target component's inventory — optionally releasing or absorbing heat via a **temperature change** per mole converted. The simulation applies these continuously as the run progresses; without a reaction defined, a vessel's contents stay chemically inert (only moved, mixed, or diluted, never converted).
 
-## 🧠 What Happens Under the Hood
+## What Happens Under the Hood
 
 The same `Process`/`Platform` code that runs against real hardware runs **unmodified** against the simulator, the simulation engine swaps in a stand-in client in place of each real HTTP device client, so no protocol code needs to know whether it's talking to a pump or a physics model.
 

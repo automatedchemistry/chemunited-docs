@@ -1,4 +1,4 @@
-# 🧩 Pre-Running
+# Pre-Running
 
 The Pre-Running step is responsible for building, saving, and launching the protocols to be executed.
 A protocol is defined as a sequential list of processes that will be executed one after another.
@@ -12,7 +12,7 @@ Below is the window corresponding to the Pre-Running step.
 
 ---
 
-## 🧩 Process Availability
+## Process Availability
 
 The Pre-Running window contains two lists of processes:
 
@@ -50,7 +50,7 @@ different execution scenarios according to their needs.
 
 ---
 
-## 🛠 **Options in the processes lists**
+## **Options in the processes lists**
 
 Each item in the list has a context menu, accessed via the **···** button, with the following options.
 
@@ -90,7 +90,7 @@ Each item in the list has a context menu, accessed via the **···** button, wi
 
 ---
 
-## ▶ Pre-Running Actions
+## Pre-Running Actions
 
 On the bottom-left side of the Pre-Running window, three main action buttons are available:
 
@@ -110,7 +110,7 @@ The file is stored in JSON format and contains all information required to execu
 
 ---
 
-## 📁 Protocol Files
+## Protocol Files
 
 On the right side of the window, the **Protocol Files cards** are displayed.
 All previously saved protocols appear here, allowing users to quickly inspect or relaunch them.

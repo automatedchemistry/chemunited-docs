@@ -1,4 +1,4 @@
-# 📄 Logs
+# Logs
 
 **Logs** browses and tails the work-server's log files — useful for diagnosing a run without needing terminal or
 file access to the machine the server is running on.

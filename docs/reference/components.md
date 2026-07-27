@@ -13,7 +13,7 @@ for example, all rotary valve variants are drawn with the same base graphic, and
 <strong>Sink</strong> use the same icon mirrored.
 </div>
 
-## 🧬 Analytics
+## Analytics
 
 | Icon | Component | Description |
 |---|---|---|
@@ -22,14 +22,14 @@ for example, all rotary valve variants are drawn with the same base graphic, and
 | <img src="../_static/components/MSControl.svg" width="40" height="40"> | **MS Control** | Interfaces with a mass spectrometer for in-line analysis. |
 | <img src="../_static/components/NMRControl.svg" width="40" height="40"> | **NMR Control** | Interfaces with a benchtop or in-line NMR instrument. |
 
-## ⚙️ Assembly
+## Assembly
 
 | Icon | Component | Description |
 |---|---|---|
 | <img src="../_static/components/Gantry3D.svg" width="40" height="40"> | **3D Gantry** | Motorized 3-axis gantry/stage for positioning tools or vessels. |
 | <img src="../_static/components/LengthControl.svg" width="40" height="40"> | **Length Control** | Controls a linear-position actuator (e.g. a gantry axis or motorized stage). |
 
-## 〰️ Pipes
+## Pipes
 
 | Icon | Component | Description |
 |---|---|---|
@@ -40,14 +40,14 @@ for example, all rotary valve variants are drawn with the same base graphic, and
 | <img src="../_static/components/SourceSink.svg" width="40" height="40"> | **Source** | Abstract infinite liquid/gas source, used when the exact upstream vessel is not modeled in detail. |
 | <img src="../_static/components/SourceSink.svg" width="40" height="40"> | **Sink** | Abstract infinite drain/waste point, used when the exact downstream destination is not modeled in detail. |
 
-## 🚰 Pumps
+## Pumps
 
 | Icon | Component | Description |
 |---|---|---|
 | <img src="../_static/components/HPLCPump.svg" width="40" height="40"> | **HPLC Pump** | High-pressure liquid pump typically used for continuous-flow delivery against packed-bed backpressure. |
 | <img src="../_static/components/SyringeBarrel.svg" width="40" height="40"> | **Syringe Pump** | Infuses or withdraws liquid at a controlled rate from a syringe barrel; the most common liquid-delivery component. |
 
-## 📡 Sensors
+## Sensors
 
 | Icon | Component | Description |
 |---|---|---|
@@ -58,7 +58,7 @@ for example, all rotary valve variants are drawn with the same base graphic, and
 | <img src="../_static/components/PressureControl.svg" width="40" height="40"> | **Pressure Control** | Actively controls pressure at a setpoint (e.g. driving a pressurizing device). |
 | <img src="../_static/components/PressureSensor.svg" width="40" height="40"> | **Pressure Sensor** | Measures line or vessel pressure. |
 
-## 🔧 Technical
+## Technical
 
 | Icon | Component | Description |
 |---|---|---|
@@ -69,7 +69,7 @@ for example, all rotary valve variants are drawn with the same base graphic, and
 | <img src="../_static/components/Power.svg" width="40" height="40"> | **Power Switch** | Simple on/off power control for a connected device. |
 | <img src="../_static/components/Stirring.svg" width="40" height="40"> | **Stirring Control** | Controls a stirring/mixing device (e.g. a magnetic or overhead stirrer). |
 
-## 🌡️ Thermal
+## Thermal
 
 | Icon | Component | Description |
 |---|---|---|
@@ -77,7 +77,7 @@ for example, all rotary valve variants are drawn with the same base graphic, and
 | <img src="../_static/components/Peltier.svg" width="40" height="40"> | **Peltier Cooler Temperature Control** | Temperature control driven by a Peltier (thermoelectric) element, supporting both heating and cooling. |
 | <img src="../_static/components/Chiller.svg" width="40" height="40"> | **Temperature Control** | Controls the temperature of an associated vessel or zone at a setpoint. |
 
-## 🔀 Valve
+## Valve
 
 | Icon | Component | Description |
 |---|---|---|
@@ -93,7 +93,7 @@ for example, all rotary valve variants are drawn with the same base graphic, and
 | <img src="../_static/components/SolenoidValve.svg" width="40" height="40"> | **Solenoid Valve** | Electronically actuated on/off valve. |
 | <img src="../_static/components/SolenoidValve2Way.svg" width="40" height="40"> | **2-Way Solenoid Valve** | On/off solenoid valve with a single flow path between two ports. |
 
-## 🧪 Vessel
+## Vessel
 
 | Icon | Component | Description |
 |---|---|---|

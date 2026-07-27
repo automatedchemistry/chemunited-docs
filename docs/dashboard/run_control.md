@@ -1,4 +1,4 @@
-# ▶️ Run Control
+# Run Control
 
 **Run Control** starts and cancels runs, and shows their progress live as they execute.
 

@@ -1,4 +1,4 @@
-# 🧑‍🏫 Run a Protocol
+# Run a Protocol
 
 This tutorial continues from [Build a Protocol](protocols_tutorial.md): with a process already built and its
 active processes selected in [Pre-Running](../protocols/pre_running.md), you're ready to run it from the

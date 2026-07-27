@@ -17,7 +17,7 @@ All three follow the same minimal contract — a `step(state, dt)` method that a
 time step. Advanced users can write their own reaction model by implementing this same contract and attaching it
 to the relevant vessel/component, without touching the hydraulic or transport logic.
 
-## 🧩 Custom Modules & Parameters
+## Custom Modules & Parameters
 
 Workflow modules and parameters are themselves a kind of "custom feature" — see
 [Process workflow](../protocols/module_workflows.md) for building Script/Loop/Conditional modules, and

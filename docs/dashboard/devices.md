@@ -1,4 +1,4 @@
-# 🔌 Devices
+# Devices
 
 **Devices** shows the connectivity map of every component associated in
 [Connect Devices](../connectivity/connectivity.md), with a reachability check for each one — confirming devices

@@ -1,4 +1,4 @@
-# 🚀 Install ChemUnited
+# Install ChemUnited
 
 ChemUnited is available on PyPI as the `chemunited` package, and its source is hosted on GitHub.
 
@@ -21,7 +21,7 @@ pip install git+https://github.com/automatedchemistry/chemunited-orchestrator.gi
   conflicts with other Python packages.
 </div>
 
-## 🔄 Updating ChemUnited
+## Updating ChemUnited
 
 ChemUnited is under active development (e.g., new components and features are added over time).
 To update your installation, run:

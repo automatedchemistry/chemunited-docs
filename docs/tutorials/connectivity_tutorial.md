@@ -1,4 +1,4 @@
-# 🧑‍🏫 Tutorial
+# Tutorial
 
 This tutorial demonstrates the main features of ChemUnited-Drive using a simple example configuration.
 We will configure two devices from **HarvardApparatus** and **Knauer**:

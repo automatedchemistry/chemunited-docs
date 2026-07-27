@@ -1,4 +1,4 @@
-# 🧑‍🏫 Tutorial Example
+# Tutorial Example
 
 In this tutorial, you will build a simple protocol with a single module. 
 The module will transfer a defined volume of liquid from a source vessel to a collector.

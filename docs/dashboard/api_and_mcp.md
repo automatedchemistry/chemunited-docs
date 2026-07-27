@@ -1,4 +1,4 @@
-# 🔌 API & MCP Tools
+# API & MCP Tools
 
 Everything the [dashboard](overview.md) does is backed by a REST API, and the same functionality is also available
 as MCP tools for LLM-agent-driven automation. Both are served by the same [work-server](overview.md) process.

@@ -1,4 +1,4 @@
-# 🎨 Drawing
+# Drawing
 
 The objective of this frame is to allow the user to design their own platform by dragging and dropping components onto the canvas.
 
@@ -18,7 +18,7 @@ Saves all modifications made to the current project file.
 
 Opens the component library, from which you can add new electronic elements or utensils to the setup.
 
-## 🖱️ Right-Click Menu
+## Right-Click Menu
 
 Right-clicking gives you quick access to context-specific actions, depending on what you click on.
 

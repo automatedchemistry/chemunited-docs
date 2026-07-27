@@ -1,11 +1,11 @@
-# ✅ Build Protocols
+# Build Protocols
 
 The objective of this frame is to create and organize the protocols that define how the platform operates.
 
 Before explaining how the orchestration system is designed to build these protocols, it is important to understand 
 how the protocol structure is organized within the package.
 
-## 🧩 Protocol Hierarchy
+## Protocol Hierarchy
 
 The following diagram illustrates the hierarchical relationship between the different elements that make up a protocol:
 
@@ -19,7 +19,7 @@ Complex experimental protocols can therefore be built by combining processes, mo
 
 ## Explanation of Each Level
 
-### 💻 Protocol
+### Protocol
 
 A protocol is the highest level in the orchestration hierarchy.
 It is composed of a series of processes, which are executed sequentially, one after another.
@@ -54,7 +54,7 @@ They apply only to that process and allow fine-tuning of parameters without affe
 
 Using parameters promotes modularity and flexibility: the same protocol can be reused with different parameter sets, and complex workflows can automatically validate or adjust values before execution.
 
-## 🧩 Process Availability
+## Process Availability
 
 When building protocols, each process can have one of two statuses:
 

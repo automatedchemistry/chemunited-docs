@@ -1,4 +1,4 @@
-# 🧩 Build a new project
+# Build a new project
 
 This section walks you through the steps to create a new project in ChemUnited.
 By the end, you’ll know how to start the Designer, create a project folder, and understand how
@@ -51,7 +51,7 @@ This is especially useful when you:
 * need a clear history for experiments and protocol development.
 </div>
 
-## 📁 The Project Folder
+## The Project Folder
 
 Creating a new project generates a plain directory on disk — this directory *is* the project; nothing is hidden
 away in a database. It looks like this:

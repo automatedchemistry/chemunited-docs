@@ -27,7 +27,7 @@ save as: <code>docs/_static/suite_architecture.svg</code>, then replace this blo
 * **chemunited-quantities** — shared physical-unit types (`ChemUnitQuantity`) used by all of the above, so a
   volume or flow rate defined in the orchestrator means the same thing everywhere downstream.
 
-## 📁 The Project Directory
+## The Project Directory
 
 Every ChemUnited project is a plain, git-versioned directory — there is no hidden database. A `.chemunited` file
 is simply this directory zipped up for sharing or backup.
@@ -48,7 +48,7 @@ my_project/
 └── pyproject.toml                 # makes the project directory pip-installable
 ```
 
-## 🔌 How Execution Happens
+## How Execution Happens
 
 1. **Draw** — you lay out the platform; this is saved as `draw/setup.py`.
 2. **Build Protocols** — you author one or more processes as workflow graphs; each becomes a `protocols/<name>.py` file.
