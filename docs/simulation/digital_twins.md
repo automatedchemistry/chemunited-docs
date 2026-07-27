@@ -1,4 +1,4 @@
-# <img src="../_static/icons/simulation.svg" width="24" style="vertical-align:middle; margin-right:6px;"> Setup Digital Twins
+# Setup Digital Twins
 
 A **digital twin** is a physics-based virtual copy of your platform. A protocol can run against it instead of
 real hardware — useful for dry-testing logic, timing, and expected inventory changes before touching real
