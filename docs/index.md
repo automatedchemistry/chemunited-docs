@@ -21,7 +21,7 @@ design are needed.
 - 🔗 **Connection Graphs**: Manage and visualize physical and logical device connections.
 - ⚙️ **Protocol Execution Engine**: Run and monitor experiments in real time.
 - 📈 **Timeline Monitoring**: See process evolution and status updates at every stage.
-- 🧬 **FlowChem Integration**: Deep integration with [FlowChem](https://github.com/flowchem/flowchem)
+- 🧬 **FlowChem Integration**: Deep integration with [FlowChem](https://github.com/cambiegroup/flowchem)
 to control physical hardware.
 - 💡 **Modular Architecture**: Built using PyQt with pluggable component support.
 
@@ -29,7 +29,16 @@ to control physical hardware.
 
 ## How to start
 
-how?
+New to ChemUnited? Follow this path:
+
+1. **[Install ChemUnited](wellcome/install.md)** — set up the package and launch the Designer.
+2. **[Create a new project](wellcome/new_project.md)** — start the Designer and set up your project folder.
+3. **[Draw your setup](drawing/drawing.md)** — lay out your platform and its connections.
+4. **[Build protocols](protocols/build_protocols.md)** — define the processes and workflow logic.
+5. **[Connect your devices](connectivity/connectivity.md)** — link the drawing to physical hardware.
+6. **[Run and monitor](monitoring/run_monitoring.md)** — execute protocols and track experiments live.
+
+Prefer a hands-on walkthrough? Start with the **[Drawing Tutorial](tutorials/drawing_tutorial.md)**.
 
 ---
 
