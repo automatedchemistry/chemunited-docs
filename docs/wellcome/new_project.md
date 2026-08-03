@@ -87,7 +87,7 @@ build protocols, and run. A full technical breakdown of each file is in
   it for free without doing anything extra.
 </div>
 
-## 🗜️ The `.chemunited` File
+## The `.chemunited` File
 
 A `.chemunited` file is a **ZIP export** of your project folder — a portable snapshot you can send to a
 colleague, back up, or archive, without needing them to have Git or the exact same folder layout.

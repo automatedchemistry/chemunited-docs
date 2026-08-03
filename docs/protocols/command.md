@@ -68,31 +68,36 @@ and the bound parameter must resolve to a compatible value — binding a time pa
 versa) will not work.
 </div>
 
-### Execution Options
+### Execution and waiting
 
-<img src="../_static/command_timeline.png" width="400" style="vertical-align:middle; margin-right:45px;">
+After a command
+that changes device state (a `PUT`), the platform automatically polls the device until it
+reports idle before the workflow continues. You don't need to configure anything on the block
+itself.
 
-* **Wait time after command execution** (`float`)
+If you need a fixed pause that isn't tied to any device reporting idle (e.g. letting a mixture
+settle after the last command already finished), the platform class exposes `self.platform._wait(seconds)`: a plain, cancellation-aware delay.
 
-  Seconds to wait after the command runs before the workflow continues.
-
-* **Wait for feedback status** (`bool`)
-
-  If enabled, execution blocks until the feedback command reports the expected value.
-
-* **Feedback Status Command** (`str`)
-
-  The command used to poll the device's status (e.g. `is-pumping`).
-
-* **Expected Feedback Answer** (`str`)
-
-  The value that counts as success once the feedback command is checked (e.g. `true`).
+```python
+def script_1(self, ctx: NodeExecutionContext) -> bool:
+    self.platform._wait(30.0)  # pause 30 s, unrelated to any device's idle state
+    return True
+```
 
 <div class="info-block"> <strong>
-💡 Information</strong><br> Both share the same behavior as the <a href="script_editor.md">Script Editor</a>'s
-Execution control, but the Command block is more user-friendly, since it does not require editing the script.
-It is a great fit for simple workflows — for more complex logic, use a Script module instead.
+💡 Information</strong><br> The maximum time to wait for a device to report idle is controlled by
+the run's <strong>Command timeout</strong> setting (see <a href="../dashboard/run_control.md">Run
+Control</a>), not by the individual command — leave it blank to wait indefinitely, or set it to
+fail the run if a device takes too long to respond.
 </div>
+
+Commands are therefore executed **in sync with the physical hardware**, not just with the network request:
+the workflow blocks on the real-world action, not merely on the device acknowledging the request.
+
+For example, sending `infuse` to a syringe pump returns an HTTP response as soon as the pump accepts the
+command, but the pump may still take several minutes to actually finish dispensing. The next block in the
+workflow only runs once the pump reports idle again — i.e., once it has physically finished infusing — so a
+following `switch valve` command can never fire while liquid is still being delivered.
 
 ### Label & Description
 
@@ -108,21 +113,17 @@ It is a great fit for simple workflows — for more complex logic, use a Script 
 Like the rest of the workflow, a Command block's configuration is stored as a method in the process file
 (`...\<project_folder>\protocols\<process_name>.py`, see [Saving](module_workflows.md#saving)).
 
-For example, a block labeled `command_1` — a `pt100` device's `power-on` command, with no wait time, feedback
-disabled and description "Turn on temperature controlling" — becomes:
+For example, a block labeled `command_1` — a `pt100` device's `power-on` command, with description
+"Turn on temperature controlling" — becomes:
 
 ```python
 def command_1(self, ctx: NodeExecutionContext) -> bool:
     self.platform["pt100"].put(
         "power-on",
         description="Turn on temperature controlling",
-        wait_time=0.0,
-        wait_feedback_status=False,
-        feedback_status_command="",
-        feedback_answer="true",
     )
     return True
 ```
 
-Each field in the command window maps 1:1 to a keyword argument here: `description`, `wait_time`,
-`wait_feedback_status`, `feedback_status_command`, and `feedback_answer`.
+Each parameter field in the command window maps 1:1 to a keyword argument here (e.g. `rate`,
+`volume` for an `infuse` command), plus `description` from Label & Description.

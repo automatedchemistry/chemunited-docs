@@ -20,6 +20,13 @@ it; no changes to the orchestrator itself are required.
 
 ## Steps to Add a Component
 
+<div class="info-block">
+<strong>💡 Note</strong><br>
+For anything beyond a simple pass-through device, <code>chemunited-core</code>'s own <code>Instruction.md</code>
+("How to Build a New Component") covers this in much more depth than the summary below — lifecycle diagram, base
+classes to subclass from, and the full <code>ComponentMode</code> field-metadata conventions.
+</div>
+
 1. Define the component's data/mode classes in `chemunited-core` (or reuse an existing base if your component is
    a variant of one, e.g. another valve port/position combination).
 2. Add an entry for it to the shared `COMPONENTS` registry, giving it a name, category, and port positions.

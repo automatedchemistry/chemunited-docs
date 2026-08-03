@@ -147,8 +147,8 @@ process's parameters, so their default values can be reviewed and edited without
 <img src="../_static/parameters_window_view.png" width="400">
 
 Before actually running a process, [Pre-Running](pre_running.md#-options-in-the-processes-lists) shows the same
-generated form again — this time for a specific queued instance (e.g. `clean_0`), with **Process Parameters** and
+generated form again. This time for a specific queued instance (e.g. `clean_0`), with **Process Parameters** and
 **Experiment Parameters** (the project's main parameters) both listed side by side so their final run values can be
 set:
 
-![Alt text](../_static/parameters_window_view_dashboard.png)
+![Pre-Running parameters form in the dashboard](../_static/parameters_window_view_dashboard.png)

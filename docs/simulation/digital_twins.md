@@ -40,7 +40,11 @@ be defined here first.
 
 ![Add compound dialog, with a Fill from CoolProp button and fields for name and molecular weight](../_static/compound_add.png)
 
-Once a species is defined, use **Edit inventories** to set what's actually inside a given vessel — its initial chemical content (species, concentration, volume) in flasks, bottles, and reactors on your platform. The simulation reads this as the starting state for every run.
+Once a species is defined, use **Edit inventories** to set what's actually inside each vessel on your platform (flasks, bottles, reactors, syringe pumps, …) before the simulation starts. It opens a list of every component with internal storage; selecting one splits its contents into a **Liquid** and a **Gas** phase, each with its own volume and composition — add a compound to a phase and set its amount in moles, millimoles, molar concentration, or an equivalents volume, whichever is more convenient. A capacity bar flags a vessel as **over capacity** if liquid + gas together exceed its fixed volume, and an **Auto-fill gas headspace** toggle keeps the rest of the vessel topped up with air automatically as you adjust the liquid volume, so you don't have to balance the two by hand.
+
+Edits are a draft: use **Apply changes** to commit them (or **Discard changes** to back out) before they become the starting state the simulation reads for every run, and remember to save the project afterwards to persist them to disk.
+
+![Initial Inventory workspace, showing the component list and the Liquid/Gas phase editors](../_static/iventory.png)
 
 ## Reactions
 

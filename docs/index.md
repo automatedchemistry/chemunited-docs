@@ -55,7 +55,6 @@ protocols/script_editor.md
 protocols/parameters.md
 simulation/digital_twins.md
 connectivity/connectivity.md
-connectivity/chemunited_drive.md
 protocols/pre_running.md
 ```
 

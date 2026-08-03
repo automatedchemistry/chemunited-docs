@@ -36,8 +36,7 @@ execution context), and returns a `bool`. Every time you build a command through
 appends the corresponding Python call to the method currently open in the editor.
 
 In the example below, the script sends a command to pump `"pump A"` to infuse 5 mL at 20 mL/min. After sending
-the command, the script waits 1 second and then continues to the next line. Note that the command does not wait
-for pump feedback, because `wait_feedback_status=False`.
+the command, the platform automatically waits until the pump reports idle before continuing to the next line.
 
 ```python
 ...
@@ -46,11 +45,6 @@ def script_1(self, ctx: NodeExecutionContext) -> bool:
         "infuse",       # Command name
         rate="20.0 milliliter / minute",  # Command parameter
         volume="5 milliliter",            # Command parameter
-        wait_time=1.0,                    # Custom wait time (seconds)
-        # If True, waits for device feedback (e.g., pump finishes infusing)
-        wait_feedback_status=False,
-        feedback_status_command="is-pumping",
-        feedback_answer="false",
     )
     return True
 ```
@@ -68,11 +62,6 @@ def script_1(self, ctx: NodeExecutionContext) -> bool:
         "infuse",       # Command name
         rate="20.0 milliliter / minute",  # Command parameter
         volume=self.config.pump_vol,      # Use predefined process parameter
-        wait_time=1.0,                    # Custom wait time (seconds)
-        # If True, waits for device feedback (e.g., pump finishes infusing)
-        wait_feedback_status=False,
-        feedback_status_command="is-pumnping",
-        feedback_answer="false",
     )
     return True
 ```

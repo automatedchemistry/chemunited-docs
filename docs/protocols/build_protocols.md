@@ -26,13 +26,15 @@ It is composed of a series of processes, which are executed sequentially, one af
 
 ### <img src="../_static/icons/process_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> Process
 
-Each process contains one or more workflows composed of modules.
+Each process contains one workflow composed of modules.
 Processes are executed in sequence, but within a process, the modules can run simultaneously through a multithreading workflow.
 
 ### <img src="../_static/icons/python.svg" width="16" style="vertical-align:middle; margin-right:4px;"> Module
 
-A module represents a Python script containing a sequence of commands.
-This design gives the user complete flexibility — any Python libraries can be used to support the protocol development.
+A module is a single step in a process workflow. It can be as small as one command sent directly to a
+device (a **Command** module, dragged from the Command List — no code required), or a full **Script** block
+containing a sequence of Python commands for more complex logic. **Loop** and **Conditional** modules add
+repetition and branching. See [Process workflow](module_workflows.md) for details on each type.
 
 ### <img src="../_static/icons/play_black.svg" width="16" style="vertical-align:middle; margin-right:4px;"> Command
 
@@ -66,7 +68,7 @@ The process is defined and stored in the protocol, but **not** currently schedul
 
 The main protocols panel is shown below.
 
-![Alt text](../_static/protocol_clean.png)
+![Alt text](../_static/protocol_clean.svg)
 
 This frame is divided into three areas:
 

@@ -105,7 +105,10 @@ Unlike components, connection properties do not open automatically.
 <div class="info-block"> 
 <strong>💡 Information</strong><br> 
 While all components share some common parameters, each one also includes
-<b>specific adjustable settings</b> depending on its type.
+<b>specific adjustable settings</b> depending on its type. For example, <b>Name</b> and
+<b>Angle</b> appear in every component's property window, but a <b>Syringe Pump</b> additionally
+exposes a <b>flow rate</b>, while a <b>Temperature Control</b> instead exposes a target
+<b>temperature setpoint</b>.
 </div>
 
 More details about each component can be found in the reference section: [Components Available](../reference/components.md).

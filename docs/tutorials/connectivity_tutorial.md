@@ -1,5 +1,16 @@
 # Tutorial
 
+<div class="warning-block">
+<strong>⚠️ Outdated tutorial</strong><br>
+This tutorial describes <strong>ChemUnited-Drive</strong>, a standalone helper tool that has since
+been removed — there is no <code>chemunited-drive</code> command anymore. It is pending a rewrite
+to reflect the current flow: run your own FlowChem server (see
+<a href="../connectivity/connectivity.md">Setup Connectivity</a> and the
+<a href="https://flowchem.readthedocs.io/en/latest/">FlowChem documentation</a>), then associate
+it by drag-and-drop, or by hand-writing an <code>associations.json</code> entry for SiLA2/OPC UA
+devices. The steps below no longer reflect the current product.
+</div>
+
 This tutorial demonstrates the main features of ChemUnited-Drive using a simple example configuration.
 We will configure two devices from **HarvardApparatus** and **Knauer**:
 
