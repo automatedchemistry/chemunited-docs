@@ -171,10 +171,7 @@ Most new components are one of a handful of recurring shapes. Picking the right 
 
 Tubing, loops, columns, flow reactors — anything where geometry alone determines resistance.
 
-```mermaid
-flowchart LR
-    P1["Port 1"] -->|"TRANSPORT edge<br/>length, diameter"| P2["Port 2"]
-```
+<img src="../_static/diagrams/topology/two_port_transport.svg" alt="Port 1 connects to Port 2 through a TRANSPORT edge, resistance derived from length and diameter" style="max-width:100%;">
 
 <img src="../_static/components/LoopBase.svg" width="40" height="40"> <img src="../_static/components/FlowReactorBase.svg" width="40" height="40">
 
@@ -182,10 +179,7 @@ flowchart LR
 
 A component with one port that forces a flow rate onto the network — a flow source.
 
-```mermaid
-flowchart LR
-    Net(["rest of the hydraulic network"]) --> P1["Port 1<br/>boundary: FLOW, value = flow_rate"]
-```
+<img src="../_static/diagrams/topology/terminal_fixed_flow.svg" alt="The rest of the hydraulic network connects to Port 1, whose boundary condition forces a fixed flow rate" style="max-width:100%;">
 
 <img src="../_static/components/SyringeBarrel.svg" width="40" height="40">
 
@@ -193,10 +187,7 @@ flowchart LR
 
 A component with one port that forces a pressure onto the network — the strongest constraint in the system.
 
-```mermaid
-flowchart LR
-    Net(["rest of the hydraulic network"]) --> P1["Port 1<br/>boundary: PRESSURE, value = setpoint"]
-```
+<img src="../_static/diagrams/topology/terminal_fixed_pressure.svg" alt="The rest of the hydraulic network connects to Port 1, whose boundary condition forces a fixed pressure setpoint" style="max-width:100%;">
 
 <img src="../_static/components/PressureControl.svg" width="40" height="40">
 
@@ -205,12 +196,7 @@ flowchart LR
 A splitter or combiner: several visible ports meeting at one hidden internal hub through lossless `JUNCTION`
 edges.
 
-```mermaid
-flowchart LR
-    P1["Port 1"] --> P0(("hidden hub<br/>Port 0"))
-    P2["Port 2"] --> P0
-    P3["Port 3"] --> P0
-```
+<img src="../_static/diagrams/topology/junction_hidden_hub.svg" alt="Port 1, Port 2, and Port 3 all connect into a hidden hub, Port 0" style="max-width:100%;">
 
 <img src="../_static/components/Distributor.svg" width="40" height="40">
 
@@ -219,11 +205,7 @@ flowchart LR
 Flasks, bottles, vials, wells — any storage object. Both ports connect to the same `InventoryNode` through
 `JUNCTION` edges.
 
-```mermaid
-flowchart LR
-    P1["Port 1 (TOP)"] -->|"JUNCTION"| Inv["InventoryNode<br/>gas_content + liq_content"]
-    P2["Port 2 (BOTTOM)"] -->|"JUNCTION"| Inv
-```
+<img src="../_static/diagrams/topology/vessel_inventory.svg" alt="Port 1 (TOP) and Port 2 (BOTTOM) both connect through JUNCTION edges to the same InventoryNode" style="max-width:100%;">
 
 <img src="../_static/components/GlassBottle.svg" width="40" height="40"> <img src="../_static/components/Vial.svg" width="40" height="40">
 
@@ -232,15 +214,7 @@ flowchart LR
 Valves, regulators, flow controllers — every possible internal edge already exists; only its open/closed state
 changes.
 
-```mermaid
-flowchart LR
-    subgraph Open["open() — resistance from geometry"]
-        O1["Port 1"] --> O2["Port 2"]
-    end
-    subgraph Closed["close() — resistance = R_MAX (effectively sealed)"]
-        C1["Port 1"] -.-> C2["Port 2"]
-    end
-```
+<img src="../_static/diagrams/topology/switchable_edge.svg" alt="Side by side: open() leaves Port 1 to Port 2 with resistance from geometry; close() sets the same edge to R_MAX, effectively sealed" style="max-width:100%;">
 
 <img src="../_static/components/RotaryValve.svg" width="40" height="40"> <img src="../_static/components/SolenoidValve.svg" width="40" height="40">
 
