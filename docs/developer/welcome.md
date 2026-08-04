@@ -30,6 +30,8 @@ The full picture — how these fit together, plus the project file format they a
 ## Where to go next
 
 * Want to understand the architecture? → [Software design](software_design.md)
+* Want to understand what a Component actually is under the hood — ports, edges, inventories, commands? →
+  [Component core concepts](component_concepts.md)
 * Want to add a new pump/valve/sensor to the component library? → [Add new components](add_components.md)
 * Want to script custom data-saving, reaction models, or orchestrator behavior? → [Customize protocols](add_features.md)
 * Want to customize the browser dashboard's look or pages? → [Customize dashboard](customize_dashboard.md)

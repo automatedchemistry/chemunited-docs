@@ -1,8 +1,15 @@
 # Add new components
 
 Components are the drawable building blocks (pumps, valves, sensors, vessels...) available in the
-[Draw](../drawing/drawing.md) canvas — see [Components available](../reference/components.md) for the full
+[Draw](../drawing/drawing.md) canvas. See [Components available](../reference/components.md) for the full
 current library. This page is for adding a new one that isn't in that list.
+
+<div class="info-block">
+<strong>💡 New to the component model?</strong><br>
+This page is a practical how-to. For the theory behind ports, internal edges, inventories, boundary conditions,
+and the electronic command interface referenced throughout it, read
+<a href="component_concepts.md">Component core concepts</a> first.
+</div>
 
 ## From your own project (no chemunited-core changes needed)
 
@@ -43,6 +50,10 @@ Most components live in `chemunited-core`, not in the orchestrator itself. A com
 For most new components — anything that behaves like a simple pass-through device — this registry entry is
 **all** you need to write. The orchestrator auto-generates the canvas figure, tree entry, and property editor from
 it; no changes to the orchestrator itself are required.
+
+See [Component core concepts](component_concepts.md#common-topology-recipes) for the small set of internal
+shapes (inline transport, terminal source, junction, vessel, switchable edge) most new data classes are built
+from.
 
 ## Steps to Add a Component
 

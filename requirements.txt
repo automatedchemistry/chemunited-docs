@@ -4,6 +4,7 @@ myst-parser
 sphinx-copybutton
 sphinx-design
 sphinxcontrib-video
+sphinxcontrib-mermaid
 sphinxext-opengraph
 linkify-it-py
 sphinx-rtd-theme

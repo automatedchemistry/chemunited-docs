@@ -108,6 +108,7 @@ tutorials/connectivity_tutorial.md
 
 developer/welcome.md
 developer/software_design.md
+developer/component_concepts.md
 developer/add_components.md
 developer/add_features.md
 developer/customize_dashboard.md

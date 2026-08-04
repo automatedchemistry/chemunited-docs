@@ -17,6 +17,7 @@ extensions = [
     'sphinx_copybutton',
     'sphinx_design',
     'sphinxcontrib.video',
+    'sphinxcontrib.mermaid',
     'sphinxext.opengraph',
 ]
 
@@ -44,6 +45,9 @@ myst_enable_extensions = [
     "linkify",      # auto link URLs
     "substitution", # variable placeholders
 ]
+
+# Render plain ```mermaid fenced code blocks (GitHub-compatible syntax) as diagrams
+myst_fence_as_directive = ["mermaid"]
 
 # Enable linking to headings within/across pages via #heading-slug
 myst_heading_anchors = 3
