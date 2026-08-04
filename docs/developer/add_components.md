@@ -4,6 +4,32 @@ Components are the drawable building blocks (pumps, valves, sensors, vessels...)
 [Draw](../drawing/drawing.md) canvas — see [Components available](../reference/components.md) for the full
 current library. This page is for adding a new one that isn't in that list.
 
+## From your own project (no chemunited-core changes needed)
+
+For a component that's specific to your own setup, you don't need to touch `chemunited-core` at all — no
+editable install, no fork, no reinstall. Add a `components/` folder next to your project's existing `draw/` and
+`protocols/` folders:
+
+```text
+your_project/
+  components/
+    __init__.py       # from . import my_valve
+    my_valve.py        # data/mode classes + registration — no GUI dependencies
+    MyValve.svg          # figure, same folder, named after it
+    graph.py              # optional: custom rendering (multiple layers, animation, state-driven appearance)
+  draw/setup.py
+  protocols/__init__.py
+```
+
+`components/__init__.py` is loaded automatically the moment the project is opened — in the orchestrator GUI and in
+chemunited-sim alike — and your component is immediately usable in `draw/setup.py` and shows up in the canvas's Add
+tree under its own **Custom** category. See `chemunited-core`'s `Instruction.md` — the "Building a Component in
+Your Own Project" section — for the full walkthrough, including how to declare commands for an electronically
+controllable component and how to write a custom `graph.py` for multi-layer or animated rendering.
+
+Use this path unless you specifically want the component to ship as part of the shared catalog for every
+chemunited project — that's what the rest of this page covers.
+
 ## Anatomy of a Component
 
 Most components live in `chemunited-core`, not in the orchestrator itself. A component definition has three parts:
