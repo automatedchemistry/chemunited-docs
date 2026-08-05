@@ -26,13 +26,7 @@ Every component is described by a pair of Python objects, not one:
 A `ComponentData` is always built *from* a `ComponentMode`, never authored by hand — and stays in sync with it
 every time the user edits a property:
 
-```mermaid
-flowchart LR
-    Mode["ComponentMode<br/>(Pydantic model)<br/>user input · GUI fields · config files"] -->|"Data.from_mode(mode)"| Data["ComponentData<br/>(dataclass)"]
-    Data -->|"__post_init__()"| Build["internal_structure()<br/>builds ports, internal edges, inventories"]
-    Edit["edited ComponentMode<br/>(a changed field)"] -->|"data.update(partial_mode)"| Data
-    Data -->|"after update()"| Sync["sync_internal_state()<br/>refreshes derived runtime state"]
-```
+<img src="../_static/diagrams/mode_data_lifecycle.svg" alt="ComponentMode and edited ComponentMode both feed ComponentData via from_mode/update; ComponentData fans out to internal_structure() and sync_internal_state()" style="max-width:100%;">
 
 <div class="info-block">
 <strong>💡 Rule of thumb</strong><br>
@@ -72,17 +66,7 @@ port straight into storage.
 
 Every internal edge plays one of two roles:
 
-```mermaid
-flowchart LR
-    subgraph T["TRANSPORT — resistance computed from geometry"]
-        T1["Port 1"] -->|"length, diameter"| T2["Port 2"]
-    end
-    subgraph J["JUNCTION — lossless hub / inventory link"]
-        J1["Port 1"] --> J0(("hidden hub<br/>Port 0"))
-        J2["Port 2"] --> J0
-        J3["Port 3"] --> J0
-    end
-```
+<img src="../_static/diagrams/transport_junction_roles.svg" alt="TRANSPORT: Port 1 to Port 2 with resistance from geometry. JUNCTION: Port 1, 2, and 3 all connect losslessly into a hidden hub" style="max-width:100%;">
 
 * **`TRANSPORT`** — a real physical channel (tubing, a reactor coil). Its hydraulic resistance is derived from
   `length` and `diameter` (Hagen–Poiseuille), unless overridden.
@@ -100,13 +84,7 @@ It holds two phases, `liq_content` and `gas_content`, each a `VolumeContentBase`
 moles of each chemical species it contains). A component can have zero inventory nodes (plain tubing), one (a
 flask, keyed `"Inventory"` by convention), or several (a multi-well plate has one per well).
 
-```mermaid
-flowchart LR
-    Inv["InventoryNode"] --> Liq["liq_content: VolumeContentBase"]
-    Inv --> Gas["gas_content: VolumeContentBase"]
-    Liq --> Species["initial_species: {'water': 0.5, ...}<br/>(species name → moles)"]
-    Species -->|"looked up by name"| Compounds["COMPOUNDS registry<br/>(molecular weight, heat capacity, density, color)"]
-```
+<img src="../_static/diagrams/inventory_node.svg" alt="InventoryNode holds liq_content and gas_content; liq_content holds initial_species, looked up by name in the COMPOUNDS registry" style="max-width:100%;">
 
 The species *amounts* live on the component; the species' *physical properties* live once, project-wide, in the
 `COMPOUNDS` registry — the same registry backing the **Compounds** page described in
@@ -117,12 +95,7 @@ The species *amounts* live on the component; the species' *physical properties* 
 A `Port.boundary` is a separate thing from `closure`: `closure` is the *physical* seal state (open vs. capped),
 while `boundary` is a *hydraulic solver* constraint — what the port forces the simulated network to do.
 
-```mermaid
-flowchart LR
-    Port["Port.boundary"] --> None["None<br/>ordinary internal port —<br/>pressure & flow both solved by the network"]
-    Port --> Pressure["PRESSURE, value<br/>fixed pressure (Pa) — e.g. a Pressure Control"]
-    Port --> Flow["FLOW, value<br/>fixed flow (m³/s) — e.g. a Flow Source<br/>(0 acts as a closed dead-end)"]
-```
+<img src="../_static/diagrams/port_boundary.svg" alt="Port.boundary is None (ordinary port), PRESSURE with a value, or FLOW with a value" style="max-width:70%;">
 
 A boundary isn't necessarily permanent — a gantry head, for example, switches its port's boundary between
 atmospheric pressure (idle) and `None` (inserted into a vessel) as it moves, entirely inside
@@ -148,16 +121,7 @@ This is the single most common point of confusion, so it gets its own section: *
 
 Ports are the seam between the two graphs:
 
-```mermaid
-flowchart LR
-    subgraph CompA["Component A"]
-        A1["Port 1"] -->|"InternalEdge"| A2["Port 2"]
-    end
-    subgraph CompB["Component B"]
-        B1["Port 1"] -->|"InternalEdge"| B2["Port 2"]
-    end
-    A2 ==>|"EdgeData — the tube you drew on the canvas"| B1
-```
+<img src="../_static/diagrams/edge_seam.svg" alt="Component A's Port 2 connects to Component B's Port 1 via a thick EdgeData connection, the tube drawn on the canvas, while each component's own ports are joined internally by a thin InternalEdge" style="max-width:100%;">
 
 A component's own internal topology is invisible to its neighbors — all a neighboring component sees is the
 port it's connected to.
@@ -171,9 +135,13 @@ Most new components are one of a handful of recurring shapes. Picking the right 
 
 Tubing, loops, columns, flow reactors — anything where geometry alone determines resistance.
 
-<img src="../_static/diagrams/topology/two_port_transport.svg" alt="Port 1 connects to Port 2 through a TRANSPORT edge, resistance derived from length and diameter" style="max-width:100%;">
+<img src="../_static/diagrams/topology/two_port_transport.svg" alt="Port 1 connects to Port 2 through a TRANSPORT edge, resistance derived from length and diameter" style="max-width:50%;">
 
-<img src="../_static/components/LoopBase.svg" width="40" height="40"> <img src="../_static/components/FlowReactorBase.svg" width="40" height="40">
+<div class="component-examples">
+<img src="../_static/components/Loop.svg" width="100" height="100"> 
+<img src="../_static/components/FlowReactor.svg" width="100" height="100">
+<div class="example-caption">Example components: Loop, Flow Reactor</div>
+</div>
 
 ### Terminal fixed-flow
 
@@ -181,7 +149,10 @@ A component with one port that forces a flow rate onto the network — a flow so
 
 <img src="../_static/diagrams/topology/terminal_fixed_flow.svg" alt="The rest of the hydraulic network connects to Port 1, whose boundary condition forces a fixed flow rate" style="max-width:100%;">
 
-<img src="../_static/components/SyringeBarrel.svg" width="40" height="40">
+<div class="component-examples">
+<img src="../_static/components/SyringeBarrel.svg" width="100" height="100">
+<div class="example-caption">Example component: Syringe Pump</div>
+</div>
 
 ### Terminal fixed-pressure
 
@@ -189,7 +160,10 @@ A component with one port that forces a pressure onto the network — the strong
 
 <img src="../_static/diagrams/topology/terminal_fixed_pressure.svg" alt="The rest of the hydraulic network connects to Port 1, whose boundary condition forces a fixed pressure setpoint" style="max-width:100%;">
 
-<img src="../_static/components/PressureControl.svg" width="40" height="40">
+<div class="component-examples">
+<img src="../_static/components/PressureControl.svg" width="100" height="100">
+<div class="example-caption">Example component: Pressure Control</div>
+</div>
 
 ### Junction with hidden hub
 
@@ -198,7 +172,10 @@ edges.
 
 <img src="../_static/diagrams/topology/junction_hidden_hub.svg" alt="Port 1, Port 2, and Port 3 all connect into a hidden hub, Port 0" style="max-width:100%;">
 
-<img src="../_static/components/Distributor.svg" width="40" height="40">
+<div class="component-examples">
+<img src="../_static/components/Distributor.png" width="100" height="100">
+<div class="example-caption">Example component: Distributor</div>
+</div>
 
 ### Vessel with inventory
 
@@ -207,7 +184,10 @@ Flasks, bottles, vials, wells — any storage object. Both ports connect to the 
 
 <img src="../_static/diagrams/topology/vessel_inventory.svg" alt="Port 1 (TOP) and Port 2 (BOTTOM) both connect through JUNCTION edges to the same InventoryNode" style="max-width:100%;">
 
-<img src="../_static/components/GlassBottle.svg" width="40" height="40"> <img src="../_static/components/Vial.svg" width="40" height="40">
+<div class="component-examples">
+<img src="../_static/components/GlassBottle.svg" width="100" height="100"> <img src="../_static/components/Vial.svg" width="100" height="100">
+<div class="example-caption">Example components: Glass Bottle, Vial</div>
+</div>
 
 ### Switchable edge
 
@@ -216,7 +196,10 @@ changes.
 
 <img src="../_static/diagrams/topology/switchable_edge.svg" alt="Side by side: open() leaves Port 1 to Port 2 with resistance from geometry; close() sets the same edge to R_MAX, effectively sealed" style="max-width:100%;">
 
-<img src="../_static/components/RotaryValve.svg" width="40" height="40"> <img src="../_static/components/SolenoidValve.svg" width="40" height="40">
+<div class="component-examples">
+<img src="../_static/components/SixPortDistributionValve.svg" width="100" height="100"> <img src="../_static/components/SolenoidValve.svg" width="100" height="100">
+<div class="example-caption">Example components: Rotary Valve, Solenoid Valve</div>
+</div>
 
 <div class="info-block">
 <strong>💡 Choosing the right shape</strong><br>
@@ -246,22 +229,12 @@ A `PutResult` can also carry `scheduled: list[ScheduledCommand]` — follow-up c
 a delay, without the caller having to track time itself. A syringe pump's `infuse` command uses exactly this to
 schedule its own `stop`:
 
-```mermaid
-sequenceDiagram
-    participant Caller as Protocol / Command block
-    participant Data as ComponentData
-    Caller->>Data: put(command, **kwargs)
-    Data-->>Caller: PutResult (validated, nothing mutated yet)
-    Caller->>Data: apply("infuse", rate=..., volume=...)
-    Data->>Data: mutate fields
-    Data->>Data: sync_internal_state()
-    Data-->>Caller: PutResult(scheduled=[ScheduledCommand(dt, "stop")])
-    Note over Caller,Data: dt seconds later, the scheduler fires the follow-up automatically
-    Caller->>Data: apply("stop")
-    Data->>Data: sync_internal_state()
-```
+<img src="../_static/diagrams/infuse_stop_sequence.svg" alt="Sequence diagram: Caller puts and applies infuse on Data, which mutates fields, syncs internal state, and returns a PutResult scheduling a follow-up stop; after a delay the scheduler applies stop, which syncs internal state again" style="max-width:100%;">
 
-<img src="../_static/components/HPLCPump.svg" width="40" height="40"> <img src="../_static/components/SolenoidValve.svg" width="40" height="40">
+<div class="component-examples">
+<img src="../_static/components/HPLCPump.svg" width="100" height="100"> <img src="../_static/components/SolenoidValve.svg" width="100" height="100">
+<div class="example-caption">Example components: HPLC Pump, Solenoid Valve</div>
+</div>
 
 A simpler, synchronous example: a solenoid valve's `apply("open")` just flips a boolean and calls
 `sync_internal_state()`, which opens or closes its internal edges to match — no scheduling involved.
@@ -291,13 +264,7 @@ def command_1(self, ctx: NodeExecutionContext) -> bool:
 A component's `figure` string (the same value set on both `ComponentMode.figure` and `ComponentData.figure`) is
 what ties three otherwise-independent registries together:
 
-```mermaid
-flowchart TB
-    Figure["figure = \"SolenoidValve\""]
-    Figure --> Def["figure_registry.COMPONENTS['SolenoidValve']<br/>ComponentDefinition(data_class, mode_class, category, ...)"]
-    Figure --> Svg["SolenoidValve.svg<br/>(canvas icon)"]
-    Figure --> Proto["protocols.get_protocol_class('SolenoidValve')<br/>ComponentProtocol → {command: CommandSignature}"]
-```
+<img src="../_static/diagrams/figure_join_key.svg" alt="figure = SolenoidValve ties together the figure_registry ComponentDefinition, the SolenoidValve.svg icon, and the protocol registry's ComponentProtocol" style="max-width:100%;">
 
 This is exactly what lets a project-local `components/` folder register a fully working custom component —
 `register_component()` plus `register_figure()`/an adjacent `.svg`, plus `register_protocol()` if it's
@@ -310,13 +277,7 @@ A component isn't limited to one connection type. A UV/Vis flow-cell detector, f
 plain two-port channel — but it also needs an electronic port to report its reading, and is classified
 `ELECTRONIC` so it can be commanded (e.g. to change its monitored wavelength):
 
-```mermaid
-flowchart LR
-    subgraph Cell["UV Flow Cell — COMPONENT_TYPE = ELECTRONIC"]
-        P1["Port 1 (HYDRAULIC)"] -->|"TRANSPORT edge<br/>length, diameter"| P2["Port 2 (HYDRAULIC)"]
-        P3["Port 3 (ELECTRONIC)<br/>reports wavelength / signal"]
-    end
-```
+<img src="../_static/diagrams/uv_flow_cell_example.svg" alt="UV Flow Cell, COMPONENT_TYPE ELECTRONIC: Port 1 (HYDRAULIC) connects to Port 2 (HYDRAULIC) via a TRANSPORT edge; Port 3 (ELECTRONIC) stands alone reporting wavelength/signal" style="max-width:100%;">
 
 Its `port_pairs` are `[(1, 2), (3,)]` — ports 1 and 2 form the valid hydraulic pass-through pair, and port 3 is
 its own standalone group with no hydraulic partner. `internal_edges` only contains the `(1, 2)` transport edge;

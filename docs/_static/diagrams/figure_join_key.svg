@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 250" font-family="Trebuchet MS, Verdana, Arial, sans-serif">
+  <title>The figure name as join key across three registries</title>
+  <defs>
+    <marker id="arrow-fjk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#333333"/>
+    </marker>
+  </defs>
+
+  <line x1="540" y1="60" x2="223" y2="158" stroke="#333333" stroke-width="1.5" marker-end="url(#arrow-fjk)"/>
+  <line x1="540" y1="60" x2="540" y2="158" stroke="#333333" stroke-width="1.5" marker-end="url(#arrow-fjk)"/>
+  <line x1="540" y1="60" x2="857" y2="158" stroke="#333333" stroke-width="1.5" marker-end="url(#arrow-fjk)"/>
+
+  <rect x="400" y="20" width="280" height="40" rx="6" ry="6" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+  <text x="540" y="45" text-anchor="middle" font-size="14" fill="#333333">figure = "SolenoidValve"</text>
+
+  <rect x="20" y="160" width="400" height="70" rx="6" ry="6" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+  <text x="220" y="190" text-anchor="middle" font-size="11" fill="#333333">figure_registry.COMPONENTS['SolenoidValve']</text>
+  <text x="220" y="208" text-anchor="middle" font-size="10.5" fill="#333333">ComponentDefinition(data_class, mode_class, category, ...)</text>
+
+  <rect x="440" y="160" width="200" height="70" rx="6" ry="6" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+  <text x="540" y="192" text-anchor="middle" font-size="13" fill="#333333">SolenoidValve.svg</text>
+  <text x="540" y="210" text-anchor="middle" font-size="11.5" fill="#333333">(canvas icon)</text>
+
+  <rect x="660" y="160" width="400" height="70" rx="6" ry="6" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+  <text x="860" y="190" text-anchor="middle" font-size="11" fill="#333333">protocols.get_protocol_class('SolenoidValve')</text>
+  <text x="860" y="208" text-anchor="middle" font-size="10.5" fill="#333333">ComponentProtocol &#8594; {command: CommandSignature}</text>
+</svg>
