@@ -170,10 +170,10 @@ A component with one port that forces a pressure onto the network — the strong
 A splitter or combiner: several visible ports meeting at one hidden internal hub through lossless `JUNCTION`
 edges.
 
-<img src="../_static/diagrams/topology/junction_hidden_hub.svg" alt="Port 1, Port 2, and Port 3 all connect into a hidden hub, Port 0" style="max-width:100%;">
+<img src="../_static/diagrams/topology/junction_hidden_hub.svg" alt="Port 1, Port 2, and Port 3 all connect into a hidden hub, Port 0" style="max-width:70%;">
 
 <div class="component-examples">
-<img src="../_static/components/Distributor.png" width="100" height="100">
+<img src="../_static/components/Distributor.PNG" width="100" height="100">
 <div class="example-caption">Example component: Distributor</div>
 </div>
 
@@ -182,7 +182,7 @@ edges.
 Flasks, bottles, vials, wells — any storage object. Both ports connect to the same `InventoryNode` through
 `JUNCTION` edges.
 
-<img src="../_static/diagrams/topology/vessel_inventory.svg" alt="Port 1 (TOP) and Port 2 (BOTTOM) both connect through JUNCTION edges to the same InventoryNode" style="max-width:100%;">
+<img src="../_static/diagrams/topology/vessel_inventory.svg" alt="Port 1 (TOP) and Port 2 (BOTTOM) both connect through JUNCTION edges to the same InventoryNode" style="max-width:80%;">
 
 <div class="component-examples">
 <img src="../_static/components/GlassBottle.svg" width="100" height="100"> <img src="../_static/components/Vial.svg" width="100" height="100">
