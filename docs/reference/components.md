@@ -57,6 +57,7 @@ for example, all rotary valve variants are drawn with the same base graphic, and
 | <img src="../_static/components/PhotoSensor.svg" width="40" height="40"> | **Photo Sensor** | General-purpose optical sensor for detecting light level or phase changes. |
 | <img src="../_static/components/PressureControl.svg" width="40" height="40"> | **Pressure Control** | Actively controls pressure at a setpoint (e.g. driving a pressurizing device). |
 | <img src="../_static/components/PressureSensor.svg" width="40" height="40"> | **Pressure Sensor** | Measures line or vessel pressure. |
+| <img src="../_static/components/PT100.svg" width="40" height="40"> | **Temperature Sensor** | Measures temperature at a line or vessel without controlling it. |
 
 ## Technical
 
