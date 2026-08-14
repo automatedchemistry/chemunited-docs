@@ -117,3 +117,26 @@
 .error-block strong {
   color: #a93226;
 }
+
+/* ---------- COMPONENT EXAMPLES ---------- */
+.component-examples {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem 0.75rem;
+  margin: 1em auto 1.6em;
+  text-align: center;
+}
+.component-examples img {
+  display: block;
+  margin: 0;
+}
+.component-examples .example-caption {
+  display: block;
+  flex: 0 0 100%;
+  margin-top: 0.1rem;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #666666;
+}
